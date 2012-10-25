@@ -1,0 +1,348 @@
+PHPfileNavigator versión 2.3.2
+
+Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
+términos de la Licencia Pública General de GNU según es publicada por la Free
+Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
+elección) de cualquier versión posterior.
+
+Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
+GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
+CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
+GNU para más detalles.
+
+Debería haber recibido una copia de la Licencia Pública General junto con este
+programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU. 
+
+En caso de que desexar colaborar en este proxecto enviando traduccións dos
+arquivos de idiomas ou erros de código, por favor remitide o necesario a
+dirección de correo phpfilenavigator@litoweb.net
+
+REQUERIMIENTOS
+
+Esta aplicación fue testeada en sistemas Windows XP y diversas distribuciones
+Linux con veriones de PHP desde la 4.0.6 hasta la 4.3.9, con lo cual recomiendo
+que se instale basandose en estas condiciones. Tambien fue probado (solo
+probado) en PHP 5.0.3.
+
+Se ha testeado además en servidores Apache 1.3.33 y 2.0 (y en algunas versiones
+más antiguas), y diversas pruebas bajo IIS.
+
+Requiere además de la versión de Mysql 4.0.* para el correcto funcionamiento
+del indexador de ficheros y directorios.
+
+Para que la funcionalidad sea total, se recomienda la instalación de las
+librerías GD &gt;= 2.0.1 para el tratamiento de imágenes y de las librerías
+ZLIB para la compresión de ficheros.
+
+DESCARGA
+
+En la zona de descarga de la web, existirá siempre un fichero que contiene la
+aplicación, además podrá haber más descargas posibles en cuanto se vayan
+aumentando los idiomas disponibles y nuevas utilidades.
+
+Para la descarga siempre estará disponible el fichero PHPfileNavigator.zip, con
+lo que puedes usar:
+
+wget http://phpfilenavigator.litoweb.net/PHPfileNavigator.zip
+
+para obtener el paquete.
+
+INSTALACIÓN
+
+Antes de la instalación nos debemos asegurar que los directorios "data/conf/",
+"data/logs/", "data/info/" y "tmp/" disponen de permisos de escritura para
+el usuario dependiente del servidor web (suele ser apache), además en caso
+de actualización, el fichero "data/conf/basicas.inc.php" debe disponer tambien
+de permisos de escritura en caso de realizar una actualización.
+
+Por defecto, a partir de la versión 1.5.8, los idiomas disponibles serán el
+inglés y el castellano, pero el paquete descargado tambien contine los idiomas
+gallego, holandés, italiano, francés y alemán en ficheros zip dentro del directorio
+data/idiomas/, los cuales deberás descomprimir si deseas usarlos.
+
+La aplicación cuenta con varios modos de instalación y actualización.
+
+Para una primera instalación, debes cubrir los datos necesarios para su
+ejecución como son:
+
+Datos Genéricos
+
+Idioma: Selecciona el idioma en el que será instalada la aplicación
+GD2: Si se dispone de librerias GD2 para tratamiento de imágenes
+ZLIB: Si se dispone de librerias ZLIB para compresion de ficheros
+Juego de Caracteres:Dependiendo de tu localización, selecciona un
+juego de caracteres para la correcta visualización de todos los textos
+
+Datos de Conexión a MySQL
+
+Host: Nombre del servidor de la base de datos (por defecto localhost)
+Nombre: Nombre de la base de datos (debe existir)
+Usuario: Usuario con permisos de acceso a esa base de datos (debe tener permisos
+de creación y modificación de tablas
+Contreña: Clave para ese usuario
+Prefijo de tablas: Las tablas se prodrán crear con un prefijo para
+evitar sobreescribir las ya existentes
+
+Datos del Administrador
+
+Nombre: Nombre de pila del usuario administrador
+Usuario: Usuario con el que accederá a la aplicación
+Contraseña: Contraseña para el administrador
+Repetir Contraseña: Repetir contraseña para evitar errores
+Email: Correo electrónico del administrador para enviar alertas
+
+Datos de la Raíz Inicial
+
+Nombre: Nombre del directorio que existirá como raíz inicial,
+puede ser algo como "Raíz Inicial", "Documentos Web", ...
+Ruta Absoluta: Ruta absoluta de posición del directorio inicial.
+Se debe usar "/" en vez de "\", y rematar el path con "/". Por ejemplo:
+/var/www/html/documentos/
+Ruta desde Web: Ruta absoluta de acceso desde web. Por ejemplo:
+/documentos/
+Host: Dominio que está asociado a esa ruta. Si disponemos de un servidor
+web con varios dominios nos permitirá asociar cada ruta a un dominio distinto.
+
+En caso de que ya dispongamos de una versión anterior del PHPfileNavigator, nos
+permitirá además escoger entre "Actualizar desde versión &gt; 1.5.7 y
+&lt; 1.5.7", en donde no nos pedirá cubrir ningún dato
+e instalará la aplicación sin borrar el contenido de las tablas ya existentes.
+
+Para futuras versiones, es posible que no permita actualización al realizar
+importantes modificaciones en la estructura de las tablas de MySQL
+
+Si disponemos de una versión ya instalada y volvemos a escoger la opción de
+"Instalar", borrará los datos guardados en las tablas anteriores.
+
+Los datos básicos de instalación (configuración de acceso a base de datos,
+idioma, GD2, ZLIB, ...) se guardan en el fichero data/conf/basicas.inc.php que
+podemos variar en caso de que se necesite.
+
+Para una correcta actualización, se debe sobreescribir la instalación anterior
+con la nueva, guardando una copia de seguridad del fichero
+data/conf/default.inc.php, el cual las preferencias por defecto. Estas preferencias
+pueden variar de una versión a otra, así que lo recomendable es revisar los
+comparar los cambios de configuración de la versión anterior con respector a
+la nueva y sobreescribir el fichero.
+
+Lo más recomendable es una vez instalada la aplicación, crear una segunda
+configuración y no asignar "default" a ninguna raíz para evitar sobreescribirla
+instalando versiones futuras.
+
+Una vez ejecutado el instalador, se debe borrar el directorio "instalar/" o
+volverá aparecer la pantalla de instalación.
+
+ESTRUCTURA
+
+El PHPfileNavigator se compone de la siguiente estructura:
+
+PHPfileNavigator
+|-- data
+|   |-- accions
+|   |-- conf
+|   |-- idiomas
+|   |   |-- en
+|   |   `-- es
+|   |-- include
+|   |-- info
+|   |-- logs
+|   `-- plantillas
+|-- estilos
+|   `-- pfn
+|       |-- ico
+|       `-- imx
+|-- instalar
+|   |-- include
+|   |-- mysql
+|   `-- plantillas
+|-- js
+|-- tmp
+`-- xestion
+    |-- configuracions
+    |-- grupos
+    |-- indexador
+    |-- informes
+    |-- raices
+    |-- traductor
+    `-- usuarios
+
+En el directorio "data/idiomas/" se sitúan todos los idiomas disponibles,
+algunos comprimidos en zip. Para poder usarlos solo tienes que descomprimirlos
+y cambiar el idioma base de "data/conf/basicas.inc.php".
+
+El directorio "data/conf/" puede encontrar los ficheros de configuración de
+cada raíz. Por defecto existirán dos, "basicas.inc.php" creado despues de
+la instalación y "default.inc.php" que contiene la configuración de
+comportamiento de cada raíz. Varias raíces pueden estar relacionadas con un
+solo fichero de configuración, o puedes crear tantas configuraciones como
+necesites.
+
+Para modificar las configuraciones, tanto se pueden editar los ficheros de
+configuración mediante consola o aplicación como realizar las modificaciones
+desde la zona de administración.
+
+En el directorio "data/logs/" se almacenarán los ficheros de logs que
+se seleccionaron en la configuración para cada raíz.
+
+Por defecto son dos posibles, los registros de errores de MySQL que se almacenan
+el "data/logs/mysql.php" y que está activado, y el segundo es el de registro
+de acciones sobre los ficheros y directorios, que por defecto está desactivado.
+
+El directorio "instalar/" contiene el instalador inicial y se debe borrar una
+vez instalada la aplicación.
+
+El directorio "xestion/" contiene la administración de raíces, usuario, grupos,
+indexador, informes y editor de configuraciones.
+
+FUNCIONALIDAD
+
+Básicamente el PHPfileNavigator permite la navegación y administración de
+ficheros y directorios de forma remota, pero además permite la realización
+de ciertas acciones extra. Algunas de ellas son las siguientes:
+
+Ficheros de información adicional
+Permite la creación de ficheros de información adicional por cada fichero o
+directorio que se cree, esta posibilidad viene activada por defecto, pero 
+se puede variar en el fichero de configuraciones asociado, cambiando el valor
+de la clave "estado" dentro de la posición "inc" para false.
+
+Gracias a esta funcionalidad nos permite además el uso de un buscador por
+campos definidos igualmente en el fichero de configuraciones.
+
+Funcionamento seguro
+Estricto control de usuarios basado en revisiones continuos de datos de
+sesión contrastados con los datos almacenados en la base de datos.
+Los datos de sesión están encriptados. Aún quitando esta encriptación, los
+datos almacenados no aportan información valiosa ni delicada a un posible
+intruso de un servidor dedicado.
+La encriptación de sesión se realiza mediante una clave única generada
+en cada instalación.
+
+Indexación
+Permite la indexación de ficheros por nombre, directorio o datos contenidos
+en los ficheros de información adicional.
+
+Esta indexación es configurable para cada raíz.
+
+Control de acceso web
+Si el directorio/s que gestionamos dispone de acceso a traves de web, nos
+permitirá controlar el acceso a traves del los ficheros .htpasswd en los
+cuales se almacenará un usuario y contraseña.
+
+Para crear esta protección, solo tenemos que hacer click en el icono del
+directorio que deseamos proteger y escoger la opción de "Proteger" en donde
+podremos escribir el usuario y contraseña necesarios para poder acceder via
+web. Si deseamos eliminar esa protección, solo tenemos que enviar el
+formulario con los campos vacíos.
+
+Está posibilidad solo está disponible para el usuario administrador
+
+Vista en árbol
+El PHPfileNavigator nos permite ver el contenido de toda un raíz en formato
+árbol. Además nos permite escoger entre visualización solo de directorios
+o todo el contenido, dandonos información como el tamaño total de la raíz y
+la cantidad de directorios y ficheros existentes.
+
+Descarga de ficheros y directorios comprimidos
+Tienes la posibilidad de descargarte un fichero comprimido en formato zip
+o de descargarte un directorio completo en el mismo formato.
+
+Extracción de ficheros en el servidor
+Además de la descarga de ficheros comprimidos, tienes la posibilidad de
+subir ficheros TAR,GZ o BZ y descomprimirlos en el directorio remoto. Esta
+opción es muy útil en caso de necesitar subir una gran cantidad de ficheros.
+
+Control de tamaño
+Un herramienta útil en caso de que el directorio tenga acceso público, es
+la limitación de peso en una raíz, esto nos permitirá marcar un límite que
+no podrá ser superado (ni por el administrador).
+
+Para esto, tenemos que acceder como administrador a la gestión de raíces y
+ahí, marcar el peso máximo deseado, escogiendo las unidades deseadas.
+
+Una vez hecho esto, la gestión obtendrá el peso actual de la raíz y creará
+en "data/info/" un directorio con el id de la raíz y dos ficheros, uno con
+el límite impuesto de peso y otro con el peso actual, que irá actualización
+según se suban, copien, borren,... o realicen las distintas acciones posibles.
+
+Este control se realizará para toda acción con ficheros o directorios,
+incluido el control sobre ficheros extraídos en el servidor.
+
+Limitación sobre tipos de ficheros
+El PHPfileNavigator permite limitar el tipo de ficheros que se van a subir
+al servidor.
+
+Por ejemplo puedes evitar subir ficheros con extensión php o pl o cualquier
+otro que necesites o que creas que puedan permitir realizar acciones no deseadas.
+
+Este control se realizar para todo tipo de acciones, desde subir ficheros o
+direcciones remotas, hasta el renombrado o descompresión de otro fichero.
+
+Por ejemplo si voy a descomprimir un fichero tar.gz y este contiene algún
+documento con extensión no permitida, evitará extraerlo continuando con los siguientes
+y al rematar dará una advertencia de que algúnos ficheros no han podido ser
+extraído por restricciones de servidor.
+
+Completa administración
+El PHPfileNavigator nos posibilita una completa administración de prácticamente
+todos los aspectos posibles.
+
+El administrador/es tendrá la posibilidad de crear raíces, usuarios, grupos,
+configuraciones así como de realizar las relaciones entre todos ellos.
+
+Cada raíz, usuario, grupo o configuración podrá ser eliminado o desctivado
+según las necesidades.
+
+Informes de actividad y errores
+Desde la administración podrás visualizar informes sobre errores de MySQL,
+acciones sobre ficheros o directorios y entradas y salidas de usuarios.
+
+Además para cada una de las posibilidades podrás escoger solo un informe parcial,
+por ejemplo, mostrar solo los ficheros eliminados o buscar acciones por usuario
+concreto o listar los intentos de intrusión con datos erroneos...
+
+Gestión de imágenes
+Un punto fuerte de la aplicación es la gestión y manipulación de imágenes, que
+nos permitirá crear copias reducidas personalizadas de otras imágenes más
+grandes.
+
+Además esto nos permite una previsualización de las imágenes reducidas en el
+listado de ficheros, en la vista en árbol o en el detalle de la imagen.
+
+Para ello será necesario habilitar la opción de GD2 en la instalación
+
+Subida de páginas o documentos web
+El PHPfileNavigator nos permite la descarga de cualquier documento que esté
+disponible en la web hacia nuestro servidor. Para eso utilizaremos la opción
+de "Subir URL" en el menú superior y que nos permitirá guardar una URL en el
+disco, tanto páginas web como imágenes  o cualquier documento visible en web.
+
+Edición de ficheros
+Además de las acciones propias de todo gestor de ficheros (copiar, mover,
+borrar,...) el PHPfileNavigator nos permite la edición de ficheros en linea.
+El tipo de ficheros editables es configurable, mediante un array de extensiones.
+Además podremos simplemente visualizar su contenido.
+
+Estas son solo algunas de las múltiples funciones de las que dispone esta
+aplicación distribuida bajo la licencia GPL.
+
+RECOMENDACIONES
+
+ATENCIÓN:
+No es nada recomendable el uso de varias raices sobre un mismo path o subpath
+ya que puede ocasionar problemas con el indexador y con el limitador de tamaño.
+
+Claramente si yo doy de alta una raíz con path /var/www/html/ y otra con path
+/var/www/html/directorio/ y limito alguna de las dos raices (o las dos) en
+peso, cuando estoy trabajando el alguna de las dos, la otra no se va a enterar
+de que han sido modificados, añadidos o borrados ficheros y directorios, con lo
+que el indexador devolverá información incorrecta y el limitador de peso
+fallará al no poder contabilizar correctamente todos los cambios.
+
+DONACIONES
+
+Si piensas que esta herramienta te puede ser útil y deseas que el desarrollo de
+la misma no cese, por favor realiza una donación en el boton superior de PAYPAL.
+
+A todos los que colaboran con este proyecto, GRACIAS.

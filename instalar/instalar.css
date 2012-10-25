@@ -1,0 +1,144 @@
+/*******************************************************************************
+* instalar/instalar.css
+*
+* Hoja de estilos del instalador
+*
+
+PHPfileNavigator versión 2.3.0
+
+Copyright (C) 2004-2005 Lito <lito@eordes.com>
+
+http://phpfilenavigator.litoweb.net/
+
+Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
+términos de la Licencia Pública General de GNU según es publicada por la Free
+Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
+elección) de cualquier versión posterior. 
+
+Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
+GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
+CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
+GNU para más detalles. 
+
+Debería haber recibido una copia de la Licencia Pública General junto con este
+programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU. 
+*******************************************************************************/
+
+h2 {
+	font-size: 14px;
+	color: #000;
+	border-bottom: 1px solid #000;
+	padding-bottom: 5px;
+}
+
+h3 {
+	font-size: 13px;
+	color: #C00;
+	padding-bottom: 5px;
+}
+
+#logo_i {
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+	border: 0;
+}
+
+#menu_esquerda {
+	border: 1px solid #069;
+	background-color: #D1E0EE;
+	padding: 10px 10px 10px 10px;
+	width: 180px;
+	height: 400px;
+	float: left;
+	color: #333;
+}
+
+#menu_esquerda li {
+	padding: 12px 0 12px 0;
+	border-bottom: 1px solid #EEE;
+}
+
+li.menu_marcado {
+	color: #F63;
+	font-weight: bold;
+}
+
+li span {
+	padding-left: 5px;
+}
+
+#contido {
+	float: left;
+	margin: 0 0 10px 10px;
+	padding: 20px 10px 10px 10px;
+	width: 500px;
+	border: 1px solid #EEE;
+}
+
+#pe_i {
+	margin: 0 auto 0 auto;
+	width: 762px; /* Don't change this value / No cambiar este valor */
+	padding: 0 10px 0 10px; /* Don't change this value / No cambiar este valor */
+}
+
+#pe_i a {
+	color: #DDD;
+}
+
+* html #pe_i {
+	width: 782px; /* Don't change this value / No cambiar este valor */
+}
+
+.separa_10d {
+	margin-right: 10px;
+}
+
+.dereita {
+	float: right;
+	text-align: right;
+}
+
+.esquerda {
+	float: left;
+}
+
+.capa_ok {
+	background: #CFC url(imx/ok.png) no-repeat 10px center;
+	border: 1px solid #093;
+	border-right: 3px solid #093;
+	border-bottom: 3px solid #093;
+	padding: 10px 10px 10px 60px;
+	margin: 0 0 5px 0;
+}
+
+.capa_erro {
+	background: #FCC url(imx/erro.png) no-repeat 10px center;
+	border: 1px solid #C33;
+	border-right: 3px solid #C33;
+	border-bottom: 3px solid #C33;
+	padding: 10px 10px 10px 60px;
+	margin: 0 0 5px 0;
+}
+
+.capa_aviso {
+	background: #FC9 url(imx/aviso.png) no-repeat 10px center;
+	border: 1px solid #F90;
+	border-right: 3px solid #F90;
+	border-bottom: 3px solid #F90;
+	padding: 10px 10px 10px 60px;
+	margin: 0 0 5px 0;
+}
+
+.tachado {
+	color: #999;
+	text-decoration: line-through;
+}
+
+.fondo_gris {
+	border: 1px solid #CCC;
+	border-right: 3px solid #CCC;
+	border-bottom: 3px solid #CCC;
+	background-color: #EEE;
+	padding: 4px 4px 4px 10px;
+}

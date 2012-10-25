@@ -1,0 +1,356 @@
+PHPfileNavigator version 2.3.3
+
+Copyright (C) 2004-2005 Lito <lito@eordes.com>
+
+http://phpfilenavigator.litoweb.net/
+
+Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
+terminos de la Licencia Publica General de GNU segun es publicada por la Free
+Software Foundation, bien de la version 2 de dicha Licencia o bien (segun su
+eleccion) de cualquier version posterior. 
+
+Este programa se distribuye con la esperanza de que sea util, pero SIN NINGUNA
+GARANTÍA, incluso sin la garantia MERCANTIL implicita o sin garantizar la
+CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Vease la Licencia Publica General de
+GNU para mas detalles. 
+
+Deberia haber recibido una copia de la Licencia Publica General junto con este
+programa. Si no ha sido asi, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU.
+
+1.0.1 - Permite cambiar de raiz
+1.0.1 - Mejoras en la administracion
+1.1.0 - Cambio en distribucion de directorios
+1.1.0 - Cambio sistema generacion de ficheros auxiliares
+1.1.0 - Cambio en upload y creacion de directorios
+1.1.0 - Mejora seguridad en acciones sobre directorios
+1.1.0 - Nuevos iconos propios
+1.1.1 - Marca de color sobre linea
+1.1.1 - Iconos con fondo transparente
+1.1.1 - Cambios en los ficheros de configuracion
+1.2.0 - Edicion de ficheros tipo texto, configurables
+1.3.0 - Permitir descarga de documentos empaquetados (gzip)
+1.3.0 - Correccion en peticion de icono para fichero en class_imaxes.php
+1.3.0 - Nuevos iconos para tipos de ficheros, Total: 69 extensiones ;)
+1.3.1 - Correcion en el recuento de tamanho para la pantalla de arbol
+1.3.1 - Permitir almacenar documentos remotos
+1.3.1 - Permite anular la descarga si el documento es muy extenso
+1.3.2 - Cambio en menu flotante para funcionar con CSS
+1.3.2 - Correccion en comentarios sobre las acciones
+1.3.3 - Correccion en devolucion del nombre del fichero de informacion adicional
+1.3.3 - Correccion en la devolucion de registros despues de una consulta
+1.3.3 - Correccion error en la pantalla de renombrado
+1.3.3 - Anhadida la opcion de indexar para directorios
+1.3.3 - Corregido control de ficheros adicionales para directorios
+1.3.3 - Corregidas diferencias en los ficheros de idiomas
+1.3.4 - Aumentado control en nombre de ficheros y directorios
+1.4.0 - De modo experimental se ha anhadido el indexador y buscador
+1.4.1 - Pequenha correccion en enlace a directorio desde los resultados del buscador
+1.4.1 - Optimizacion de la consulta de busqueda de ficheros
+1.4.1 - Pequenho cambio en class_arbore que no afecta a nada
+1.4.1 - Correccion en la devolucion de resultados para el buscador
+1.4.1 - Anhadida gestion de Indexacion
+1.4.2 - Correccion class_inc para crear pantalla de descripcion
+1.4.2 - Eliminadas y cambiadas tablas del indexador
+1.4.3 - Correccion para optimizacion en class_indexador para indexacion recursiva
+1.4.3 - Correcion en ancho de capas para la ventana de informacion adicional
+1.4.3 - Anhadidos textos en Ingles
+1.4.4 - Correccion en datos duplicados para acceso a base de datos
+1.4.4 - Anhadidos nuevos iconos para extensiones
+1.4.5 - Anhadido auto-instalador para gallego, castellano e ingles
+1.4.5 - Correcion en comillas para textos de informacion adicional
+1.4.6 - Anhadido control de llamada a ficheros .inc.php
+1.4.6 - Pequenhos cambios en el codigo HTML
+1.4.7 - Correccion en la accion de enlazar
+1.4.7 - Anhadido control de paths correcto
+1.4.8 - Anhadido permitir obtener el tamanho total de un directorio
+1.4.8 - Corregidos pasos por referencia (podrian quedar obsoletos en el futuro)
+1.4.9 - Modificada funcion que devuelve el peso de ficheros y directorios
+1.4.9 - Anhadido control de acceso no permitido
+1.4.9 - Modificado el instalador
+1.4.9 - Modificado el control de gd2 en class_imaxes.php
+1.4.9 - Modificado el control de zlib en descargar.inc.php
+1.4.9 - Control de creacion y eliminacion de ficheros temporales
+1.5.0 - Pequenhas modificaciones en class_usuarios.php
+1.5.0 - Pequenhas modificaciones en class_niveles.php
+1.5.0 - Pequenhas modificaciones en class_inc.php
+1.5.0 - Modificado el orden para los ficheros y directorios en formato arbol
+1.5.0 - Mayor personalizacion de los permisos sobre las acciones
+1.5.0 - Mayor control sobre la ejecucion de acciones
+1.5.1 - Mejora del control de registros de errores en MySQL
+1.5.1 - Correjidos pasos por referencia en ficheros de clases
+1.5.1 - Bloqueo de tablas para consultas y actualizaciones en base de datos
+1.5.1 - Cambios en el .htaccess
+1.5.1 - Pequenha modificacion en el instalador
+1.5.2 - Correccion en data/include/class_niveles.inc.php
+1.5.2 - Cambios en el fichero de configuracions data/conf/default.inc.php
+1.5.2 - Cambios en el checkeo de nombres en data/include/formatear.php
+1.5.2 - Cambios en el nombre de fichero con espacios cuando se descarga
+1.5.2 - Correccion en data/include/class_indexador.php por problemas con el bloqueo
+1.5.2 - Correccion en class_accions cuando se guarda un fichero editado
+1.5.3 - Revision de textos en ingles
+1.5.3 - Eliminada funcion en data/include/class_conf.php no usada
+1.5.3 - Correccion en la administracion de las raices
+1.5.3 - Anhadido idioma holandes
+1.5.4 - Pequenho cambio en data/include/formatear.php
+1.5.4 - Corregido aviso de peso maximo excedido para subida de ficheros
+1.5.4 - Corregido falta de fichero a incluir en el instalador
+1.5.5 - Anhadido limite de tamanho para las raices
+1.5.5 - Cambio de directorios de los ficheros de idiomas para la instalacion
+1.5.5 - Anhadido idioma Italiano (Thanks Cri)
+1.5.6 - Corregido problema en gestion de tamanho maximo de directorio
+1.5.7 - Cambios en las administraciones de raices y usuarios
+1.5.7 - Cambios en el checkeo de la ruta del directorio
+1.5.7 - Creada proteccion mediante .htpasswd para directorios
+1.5.7 - Correcciones en el los ficheros de idiomas
+1.5.7 - Corregidas direcciones relativas en la administracion
+1.5.7 - Corregido limite de peso en formularios de subida de ficheros
+1.5.7 - Corregido problema con nombres de ficheros y derctorios con simbolo "+"
+1.5.8 - Mejoras en el instalador que permite realizar instalacion segun version
+1.5.8 - Mejorado control sobre los usuarios
+1.5.8 - Mejorada compatibilidad con IIS
+1.5.8 - Corregida dupliacion en definicion de variable en data/include/class_niveles.php
+1.5.8 - Corregida y mejorada la administracion de usuarios y raices
+1.5.8 - Permite salir sin destruir la sesion (solo eliminara la variable propia)
+1.5.8 - Crea un .htaccess con cada raiz para proteger los ficheros de informacion adicional
+1.5.8 - Mejorada creacion de .htaccess y .htpasswd
+1.5.8 - Mejorada funcion check_nome en data/include/formatear.php
+1.5.8 - Nuevos iconos de tipos de ficheros (Total 85)
+1.5.9 - Anhadido idioma frances (Gracias Frederic Soultanem)
+1.5.9 - Corregidos pasos de identificador de sesion
+1.5.9 - Anhadidos nuevos iconos (Total 88)
+1.5.9 - Corregida salida de la aplicacion (sair.php)
+1.5.9 - Modificada la funcion check_nome en data/include/formatear.inc.php
+1.5.9 - Mejorada descargas de URL remotas
+1.5.9 - Anhadida descarga de directorios comprimidos con zip (EasyZIP class version 1.0)
+1.5.9 - Pequenha modificacion en la administracion de raices
+1.5.9 - Correccion de indice para textos en data/idiomas/X/axuda.inc.php "axuda_txt_renombrar" -> "axuda_txt_renomear"
+1.5.9 - Anhadido idioma Aleman (Gracias Andreas Müller)
+1.6.0 - Corregido permitir escoger frances o aleman en el instalador si estan descomprimidos los zip
+1.6.0 - Los cambios en la administracion de raices y usuarios se actualizan en el momento
+1.6.0 - Muy Mejorado el checkeo y control de acceso a usuarios (Muchas variaciones con respecto a la anterior version)
+1.6.0 - Corregido problema de mantener sesion al salir
+1.6.0 - Mejorado el control y anhadida la encriptacion de los ficheros temporales de sesion
+1.6.0 - Muy mejorado y optimizado el codigo del instalador
+1.6.1 - Anhadidos comentarios en la creacion del fichero de configuracion
+1.6.1 - Suprimidos mensajes de error en data/include/class_imaxes.php para imagenes no validas
+1.6.1 - Anhadida paginacion en el pie del listado
+1.6.1 - Corregido problema con array_merge en data/include/class_conf.php
+1.6.1 - Anhadido session_write_close para evitar Header sin guardar sesion
+1.6.2 - Corregido cambio de nombre con texto no permitido
+1.6.2 - Autocompletar nombre de fichero cuando se renombra (extension)
+1.6.3 - Seleccion dinamica de zona cuando se recorta una imagen
+1.6.3 - Mejorada notablemente la calidad de las imagenes reducidas
+1.6.3 - Correccion en el indexador y buscador de ficheros
+1.6.3 - Permite la visualizacion de imagenes aunque no se tenga acceso via web
+1.6.3 - Mejoras en funciones de data/include/class_niveles.php
+1.6.3 - Anhadidos nuevos textos en los idiomas
+1.6.3 - Inicio de una profunda optimizacion del codigo
+1.6.3 - Cambio de nombre de algun directorio de los textos de idiomas
+1.6.4 - Permitido acceso configurable desde otras aplicaciones
+1.6.4 - Mejorada la carga de los ficheros de configuracion
+1.6.4 - Corregida la pagina de salida
+1.6.4 - Nuevos iconos para tipos de ficheros (Total 91)
+1.6.4 - Ampliada la informacion remitida en caso de intento de intrusion
+1.6.4 - Corregido comprobacion de fichero editable con extension en mayusculas
+1.6.4 - Mejoras de codigo en la ventana de informacion adicional
+1.6.4 - Cambiado el nombre a la variable de sesion que almacena los datos
+1.6.5 - Mejorado el recuento de peso de ficheros y directorios (Comentar)
+1.6.5 - Aumentado el nivel de seguridad en acciones sobre ficheros y directorios
+1.6.5 - Corregido falta de textos en idioma aleman
+1.6.5 - Correccion en data/include/usuarios.php
+1.6.5 - Mejorados los .htaccess para las raices creadas
+1.6.5 - Pequenho cambio en la gestion de raices
+1.6.5 - En la instalacion crea un .htaccess para el directorio incial
+1.6.5 - Posibilidad de mostrar tamanho real o tamanho en disco para ficheros
+1.6.5 - Permite sobreescribir un fichero existente
+1.6.5 - Mejorada la apertura y cierre de sesion
+1.6.5 - Corregida la pantalla de "Subir URL"
+1.6.6 - Mejorada compatibilidad con register_globals = Off
+1.6.6 - Permite crear imagenes reducidas PNG y GIF manteniendo la transparencia
+1.6.6 - Corregido formato de fecha/hora en los registros de error de MySQL
+1.6.6 - Fichero paths.php autoconfigurado
+1.6.6 - Uso de cookies a true por defecto y mejorada la creacion de sesion
+1.6.6 - Corregidos fallos en la eliminacion de usuarios y raices
+1.6.6 - Corregidas las redirecciones con javascript (Cambiar &amp; por &)
+1.6.6 - Codigo tabulado correctamente
+1.6.6 - Corregida pagina de descarga de un directorio comprimido
+1.6.6 - Permite ordenacion natural y case insensitive configurable
+1.6.6 - Corregida la creacion de PNG a partir de una JPEG
+1.6.6 - Acceso directo al directorio si solo se dispone de una raiz accesible
+1.6.6 - Corregidos permisos de acceso a ciertas paginas (no importante)
+1.6.7 - Cerrada conexion MySQL antes de terminar el script
+1.6.7 - Optimizada clase de conexion a MySQL
+1.6.7 - Mejorada la descarga de ficheros y directorios comprimidos en ZIP
+1.6.7 - 5 nuevos iconos
+1.6.7 - Corregido guardar peso actual de una raiz cuando se suben ficheros
+1.6.7 - Permite extraer ficheros TAR, GZIP y BZIP en el servidor
+1.6.7 - Mejorado el sistema de creacion de sesiones que evita que falle la primera vez que se realiza login
+1.6.7 - Correccion en el indexador cuando se renombran ciertos ficheros
+1.6.8 - Anhadido log de registro de acciones sobre ficheros y directorios configurable en data/conf/default.inc.php
+1.6.8 - Modificado log de registro para MySQL, configurable en data/conf/default.inc.php
+1.6.8 - Control de opcion "Buscador" en menu segun configuracion del indexador
+1.6.8 - Elimina las relaciones de ficheros y directorios en el indexador cuando se borra una raiz
+1.6.8 - Corregida en administracion la posibilidad de crear usuarios con el mismo identificador
+1.6.8 - Mejorado sistema de alerta de peso maximo de fichero excedido para la subida de ficheros
+1.6.8 - Sistema de informes en la administracion
+1.6.8 - Anhadido un index.html en todos los directorios
+2.0.0 - Mejorado la creacion de objetos vacios
+2.0.0 - Colorea el codigo en la visualizacion de los ficheros PHP
+2.0.0 - Cambios internos en el sistema de manejo de sesiones
+2.0.0 - 6 nuevos iconos (Total 101)
+2.0.0 - Renombradas todas las clases y funciones para evitar problemas en integracion con otros sistemas
+2.0.0 - Eliminada funcion sin usar en data/include/class_inc.php
+2.0.0 - Nuevo formateo de texto para ficheros de informacion adicional
+2.0.0 - Mejorada la pantalla de informacion de enlaces
+2.0.0 - Corregida opcion de ventana de informacion extendida en los resultados del buscador
+2.0.0 - Correccion en la pantalla de subir fichero
+2.0.0 - Correccion de variable redeclarada en data/include/class_inc.php
+2.0.0 - Nueva y mejorada zona de administracion
+2.0.0 - Posibilidad de edicion de los ficheros de configuracion desde la zona de administracion
+2.0.0 - Control de sintaxis para la edicion de ficheros de configuracion
+2.0.0 - Anhadido sistema de grupos para usuarios
+2.0.0 - Control de relaciones entre raices, usuarios, grupos y configuraciones
+2.0.0 - Permite configuraciones distintas para cada grupo en una sola raiz
+2.0.0 - Permite acciones para multiples ficheros y directorios a la vez (copiar, mover, permisos, eliminar y descargar)
+2.0.0 - Permite configurar el prefijo y sufijo para los ficheros de informacion adicional
+2.0.0 - Consultas para indexacion mas optimizadas
+2.0.0 - Se ha pasado toda de la web a CSS con DOCTYPE XHTML 1.0 Strict
+2.0.0 - Permite en cambio de permisos de ficheros y directorios
+2.0.0 - Los informes de acciones son individuales por raiz
+2.0.0 - Permite limitar el ancho de banda usado por cada usuario controlando las subidas y descargas de ficheros
+2.0.0 - Contador de descargas por fichero
+2.0.0 - Se pueden consultar informes por espacio en disco usado en cada raiz o por ancho de banda usado por cada usuario
+2.0.0 - Anulada la cache para imagenes
+2.0.0 - Sistema de traduccion integrado en la aplicacion
+2.0.0 - Permite visualizar el contenido de ficheros comprimidos ZIP/TAR/GZIP
+2.0.0 - Permite ampliar la zona de visualizacion de contenidos para pantallas pequenhas o listados amplios
+2.0.1 - Cambiados file_exists por la funcion is_file mucho mas rapida
+2.0.1 - Eliminados ficheros no necesarios
+2.0.1 - Poner @ en funciones de PHP para evitar errores
+2.0.1 - Cambios en el fichero sql de creacion de la base de datos (Instalacion)
+2.0.2 - Corregida variable redeclarada en data/include/clases.php linea 42 (Solo error en PHP5)
+2.0.2 - Correccion de informacion en los informes de uso de disco y ancho de banda
+2.0.2 - Anhadido el title para enlace en las acciones
+2.0.2 - Correccion en error cuando se extrae un fichero
+2.0.2 - 15 iconos nuevos (13 OpenOffice 2)
+2.1.0 - Correccion en visualizacion del contenido de un fichero comprido con WinZip 8
+2.1.0 - Informacion de ancho y alto para imagenes en la pantalla de detalle
+2.1.0 - Eliminada funcion no usada en data/include/class_conf.php
+2.1.0 - Cambiado DOCTYPE para XHTML 1.1
+2.1.0 - Corregido formulario de busqueda rapida
+2.1.0 - Permite definir el tamanho del textarea en la edicion de ficheros de texto
+2.1.0 - Permite eliminar la copia reducida de una imagen
+2.1.0 - Intentar que la aplicacion sea lo mas accesible posible (W3C WCAG 1.0)
+2.1.0 - Corregido error en las tareas de mantenimiento automatico
+2.1.0 - Permitir eliminar los ficheros de logs (mysql/acciones)
+2.1.0 - Corregido alta de path para rutas en windows
+2.1.0 - Permitir eliminar los ficheros de informacion adicional y las imagenes en miniautura para toda la raiz
+2.1.0 - Corregidas acciones de administrador en la navegacion no disponibles
+2.1.0 - Permite definir el nombre para el fichero a descargar en la compresion multiple
+2.1.0 - Permite definir la visualizacion de permisos en formato numerico o texto
+2.1.0 - Correcciones en el disenho
+2.1.0 - Correccion en opciones de menu desactivadas pero si visibles
+2.1.0 - Marcado la fila del fichero en seleccion multiple
+2.1.0 - Pequenhas correcciones de estilo
+2.1.0 - Incializacion de error_reporting
+2.1.1 - Corregido enlace a permisos para directorios
+2.1.1 - Corregido enlace a descarga de ficheros
+2.1.1 - Corregido prompt de javascript sin addslashes
+2.1.1 - Corregidos Header ('Location: ...') && exit;
+2.2.0 - Anhadidos nuevos iconos
+2.2.0 - Revision del instalador (Disenho)
+2.2.0 - Permite edicion de ficheros sin extension
+2.2.0 - Ampliacion del ancho del cuerpo mas rapido
+2.2.0 - Pantalla de informacion detallada mucho mas rapida
+2.2.0 - Corregidos problemas en descargas para ficheros muy grandes
+2.2.0 - Correccion en el formulario de datos de informacion adicional
+2.2.0 - Mejora del manejo de sesiones
+2.2.0 - Corregido error en PHP5 de end(explode(
+2.2.0 - Corregido error en enlace a Salir
+2.2.0 - Mejorado el formateo de textos
+2.2.0 - Corregida descarga de ficheros para Internet Explorer
+2.2.0 - Mejorada la edicion de ficheros
+2.2.0 - Corregida accion en vista en arbol
+2.2.0 - Permite previsualizar el contenido de directorios
+2.2.0 - Permite ver el contenido completo para listados grandes
+2.2.0 - Permite al usuario cambiar datos personales (nombre, correo, contrasenha)
+2.2.0 - Permite al usuario generar una contrasenha nueva en caso de olvido
+2.2.0 - Permite crear un fichero en blanco
+2.2.0 - Permite crear imagenes reducidas de todo un directorio
+2.2.0 - Permite enviar ficheros por correo
+2.2.0 - Permite limitar el maximo de tamanho para un fichero enviado por correo
+2.2.0 - Permite configurar si envia un correo de alerta en caso de intento de intrusion
+2.2.0 - Limitar intentos de accesos repetidos en login
+2.2.0 - El buscador elimina los fichero inexistentes en cada busqueda
+2.2.0 - Corregido - No se contabiliza el peso de los ficheros subidos mediante URL
+2.2.0 - Corregido error en consultas para MySQL 5.*
+2.2.0 - Mejorados sistema de creacion de sesiones
+2.3.0 - Anhadido un fichero phpinfo en el directorio del instalador
+2.3.0 - Correciones en la hoja de estilos
+2.3.0 - Corregida descarga multiple para Internet Explorer
+2.3.0 - Corregidos errores cuando "inc" "estado" estaba a false
+2.3.0 - Logo clicable para volver al comienzo
+2.3.0 - Permite buscar en este directorio, este directorio y subdirectorios, todos los directorios
+2.3.0 - Uso de AJAX en creacion de copias reducidas de todas las imagenes de un directorio
+2.3.0 - Anhadido formato de enlace para pegar en el MediaWiki
+2.3.0 - No permite asignar http:// en el host para alta o modificacion de una raiz
+2.3.0 - Correccion en posicion incorrecta para ciertas carpetas en la vista de arbol
+2.3.0 - Mejora en el control de ancho de banda usado
+2.3.0 - Mejora en el bloqueo de ficheros para lectura y escritura
+2.3.0 - Mejorada la proteccion de directorios mediante htaccess
+2.3.0 - Correccion en el indexador cuando se copia un directorio con un gran nivel de profundidad
+2.3.0 - Separados los ficheros de informacion adidional e imagenes reducidas del resto de ficheros
+2.3.0 - Permite buscar a partir del directorio actual
+2.3.0 - Mas informacion en la previsualizacion del contenido de un directorio
+2.3.0 - Dos nuevos iconos (FLV,XML)
+2.3.0 - Control de sesion por base de datos
+2.3.0 - Que el instalador compruebe las librerias y versiones instaladas (gd, zlib, php, mysql, ...)
+2.3.0 - Instalador/Actualizador por pasos
+2.3.0 - Mejoras para compatibilidad con idiomas no occidentales
+2.3.0 - Corregida creacion de previsualizacion de imagenes PNG en PHP 5.1.x
+2.3.0 - Opcion para reasignar las relaciones de raices-grupos-configuraciones al variar la configuracion por defecto de un grupo
+2.3.0 - Corregido problema con ficheros de informacion adicional al subir una URL
+2.3.0 - Paginacion para los usuarios, raices y grupos en la zona de administrador
+2.3.0 - Corregida la deteccion del protocolo en la recuperacion de la contrasenha para https
+2.3.0 - El envio de correos tambien queda registrador en los logs de acciones
+2.3.0 - Permite la descarga directa de los idiomas desde la seccion de traduccion
+2.3.0 - Correccion en el sistema de traduccion
+2.3.0 - Registra y muestra que usuario a subido cada fichero en la informacion adicional
+2.3.1 - Anhadido texto que faltaba para en nombre del grupo de administrador
+2.3.1 - Anhadido control de tiempo y memoria en el instalador
+2.3.1 - Mejorados los textos de ingles
+2.3.2 - Corregido problema cuando se usan comillas en el titulo del fichero (no en el nombre)
+2.3.2 - Corregido problema con MySQL 5 al no usar limite de peso para nuevas raices
+2.3.2 - Cambiados los eregi por preg_match y ereg_replace por preg_replace para optimizar la velocidad
+2.3.2 - Eliminados los botones duplicados para las acciones de copiar, mover, eliminar y permisos.
+2.3.2 - Anhadidos nuevos controles para las acciones con multiples ficheros
+2.3.2 - Permite el envio por correo electronico de multiples ficheros, tanto como adjuntos como en una lista
+2.3.2 - Corregida la pantalla de espera en la subida de ficheros para safari
+2.3.2 - Corregido problema de edicion de imagen en la subida
+2.3.2 - Corregida vaciado total en la reindexacion de ficheros
+2.3.2 - Optimizado el codigo para una ejecucion mas rapida
+2.3.2 - Corregida funcion que lee el contenido de ficheros
+2.3.2 - Cambiada accion de click sobre fichero en subcontenido de carpeta para pantalla de info
+2.3.2 - Corregido problema con creacion de directorios de informacion extra en windows
+2.3.3 - No permitir descargar ficheros con la accion de descargar a false
+2.3.3 - Correccion del instalador para aumentar el numero de registros almacenados en la tabla de accesos
+2.3.3 - Se envia mas informacion por email cuando se sube un fichero
+
+- Extraer ZIP y mejorar la compresion en ZIP
+- Anhadir visores de word, pdf y rtf en html
+- Anhadir sistema de avisos a los usuarios 
+- Barra de progreso para subidas
+- Acceso anonimo
+- Filtrado por extensiones
+- Permitir almacenar direcciones URL
+- Permitir marcar ficheros o carpetas como favoritas
+- Revisar por que marca 2 descargas si solo es un click (solo en imagenes)
+- Falla el control de uso de ancho de banda
+- Cambiar datos de configuracion para base de datos
+- Permitir registrarse y acceder a los usuarios
+- Problema con ficheros que contienen apostrofes o comillas
+- Cambiar idioma alertas con el idioma de la configuracion
+- Implementar sistema de recuperacion de descargas para descargas detenidas http://pfn.sourceforge.net/phpBB2/viewtopic.php?t=453
+- Anhadir un editor WYSIWYG
+- Crear fecha de expiracion para las cuentas de usuario

@@ -1,0 +1,99 @@
+<?php
+/****************************************************************************
+* data/idiomas/br/idiomas.inc.php
+*
+* Textos para el idioma Portuguese (Brazil)
+*
+
+PHPfileNavigator versión 2.1.0
+
+Copyright (C) 2004-2005 Lito <lito@eordes.com>
+
+http://phpfilenavigator.litoweb.net/
+
+Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
+términos de la Licencia Pública General de GNU según es publicada por la Free
+Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
+elección) de cualquier versión posterior.
+
+Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
+GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
+CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
+GNU para más detalles.
+
+Debería haber recibido una copia de la Licencia Pública General junto con este
+programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU.
+*******************************************************************************/
+
+defined('OK') or die();
+
+return array(
+	'lista_idiomas' => array(
+		'ae' => 'ArÃ¡bico',
+		'af' => 'Africano',
+		'al' => 'AlbanÃªs',
+		'am' => 'ArmÃªnio',
+		'ba' => 'Bosniano',
+		'bg' => 'BulgÃ¡ria',
+		'br' => 'PortuguÃªs(Brasil)',
+		'bv' => 'Belarusian',
+		'ca' => 'CanadÃ¡',
+		'ch' => 'ChinÃªs',
+		'ct' => 'CatalÃ£o',
+		'cz' => 'Checo',
+		'de' => 'AlemÃ£o',
+		'dk' => 'DinamarquÃªs',
+		'ee' => 'Estoniano',
+		'en' => 'InglÃªs',
+		'es' => 'Espanhol',
+		'fr' => 'FrancÃªs',
+		'fi' => 'FinlandÃªs',
+		'gl' => 'Galician',
+		'gn' => 'GuaranÃ­',
+		'gr' => 'Grego',
+		'hr' => 'Croata',
+		'hu' => 'HÃºngaro',
+		'id' => 'IndonÃ©sio',
+		'ie' => 'IrlandÃªs',
+		'il' => 'Hebreu',
+		'in' => 'IndÃº',
+		'is' => 'IslandÃªs',
+		'it' => 'Italiano',
+		'jp' => 'JaponÃªs',
+		'kr' => 'Coreano',
+		'ku' => 'Kurdo',
+		'ls' => 'LetÃ£o',
+		'lt' => 'Lituano',
+		'mk' => 'MacedÃ´nio',
+		'mn' => 'Mongol',
+		'mt' => 'MaltÃªs',
+		'my' => 'Malaio',
+		'nl' => 'AlemÃ£o',
+		'no' => 'NorueguÃªs',
+		'np' => 'NepalÃªs',
+		'pl' => 'PolonÃªs',
+		'pr' => 'Persa',
+		'pt' => 'Portugues(Portugal)',
+		'ro' => 'Romeno',
+		'ru' => 'Russo',
+		'sd' => 'Sundanese',
+		'se' => 'Sueco',
+		'sh' => 'Servo-croata',
+		'si' => 'Sloveniano',
+		'sk' => 'Eslovaco',
+		'so' => 'SomalÃªs',
+		'sr' => 'SÃ©rvio',
+		'sv' => 'Sueco',
+		'sw' => 'Suaile',
+		'th' => 'TailandÃªs',
+		'tr' => 'Turco',
+		'tt' => 'Tatar',
+		'ua' => 'Ucraniano',
+		'uz' => 'Uzbek',
+		'vc' => 'Basco',
+		'vn' => 'Vietnamita',
+		'zu' => 'Zulu',
+	),
+);
+?>

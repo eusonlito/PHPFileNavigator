@@ -1,0 +1,881 @@
+/*******************************************************************************
+* estilos/pfn/estilos.css
+*
+* Hoja de estilos CSS
+*
+
+PHPfileNavigator versión 2.3.0
+
+Copyright (C) 2004-2005 Lito <lito@eordes.com>
+
+http://phpfilenavigator.litoweb.net/
+
+Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
+términos de la Licencia Pública General de GNU según es publicada por la Free
+Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
+elección) de cualquier versión posterior. 
+
+Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
+GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
+CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
+GNU para más detalles. 
+
+Debería haber recibido una copia de la Licencia Pública General junto con este
+programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU. 
+*******************************************************************************/
+
+/* ----- Estilos para etiquetas ----- */
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	font-size: 12px;
+	color: #000;
+	font-family: Arial, Verdana, Helvetica, Sans-Serif;
+	text-decoration: none;
+	background: #FFF url(imx/fondo.png);
+}
+
+form {
+	display: inline;
+}
+
+input, textarea, select {
+	border: 1px solid #000;
+	background: #FFF;
+	vertical-align: middle;
+	width: auto;
+}
+
+input.text, input.file {
+	width: 300px;
+}
+
+textarea {
+	width: 300px;
+	height: 65px;
+}
+
+input.checkbox {
+	border: none;
+}
+
+a, a:visited { 
+	color: #069;
+	text-decoration: none;
+}
+
+a:hover { 
+	color: #FFF;
+	text-decoration: underline;
+	background-color: #069;
+}
+
+li, ul {
+	list-style: none outside;
+	white-space: nowrap;
+}
+
+img {
+	vertical-align: middle;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+tfoot {
+	background-color: #666;
+	color: #FFF;
+	white-space: nowrap;
+	padding: 5px;
+	font-weight: bold;
+}
+
+caption {
+	text-align: left;
+	padding: 5px;
+	color: #333;
+	background-color: #EEF;
+}
+
+h1 {
+	color: #F60;
+	font-size: 13px;
+	border-bottom: 1px solid #F60;
+}
+
+h2 {
+	color: #CC0;
+	font-size: 12px;
+	border-bottom: 1px solid #CC0;
+}
+
+/* ----- Cuerpo ----- */
+
+#corpo {
+	position: relative;
+	margin: 0 auto;
+	padding: 0 10px 0 10px; /* Don't change this value / No cambiar este valor */
+	width: 740px; /* Don't change this value / No cambiar este valor */
+	background: #FFF;
+	border-right: 1px solid #333;
+	border-left: 1px solid #333;
+	min-height: 100%;
+}
+
+* html #corpo {
+	height: 100%;
+	width: 760px; /* Don't change this value / No cambiar este valor */
+}
+
+#pe {
+	position: relative;
+	margin: -5.7em auto 0 auto;
+	width: 740px; /* Don't change this value / No cambiar este valor */
+	padding: 0 10px 0 10px; /* Don't change this value / No cambiar este valor */
+}
+
+#pe a {
+	color: #DDD;
+}
+
+* html #pe {
+	margin-top: -5.8em;
+	width: 760px; /* Don't change this value / No cambiar este valor */
+}
+
+#resumo_dir {
+	margin-top: 5px;
+	padding: 3px 10px 3px 10px;
+	border: 1px solid #CCC;
+	color: #666;
+}
+
+#pe_utiles {
+	width: 100%;
+	height: 30px;
+	margin: 5px 0 5px 0;
+}
+
+#pe_utiles td {
+	width: 50%;
+	border: 1px solid #CCC;
+}
+
+#pe_texto {
+	background: #333;
+	color: #DDD;
+	text-align: right;
+	padding: 5px 10px 5px 10px;
+}
+
+#pe_separador {
+	clear: both;
+	display: block;
+	height: 1px;
+	margin-top: 70px;
+	font-size: 1px;
+	line-height: 1px;
+}
+
+/* ----- Pantalla de acceso ----- */
+
+#benvido {
+	margin: 100px auto 0 auto;
+	color: #FFF;
+	padding: 10px;
+	width: 240px;
+	font-weight: bold;
+	background: #C00;
+	border: 1px solid #000;
+	text-align: center;
+}
+
+* html #benvido {
+	width: 260px;
+}
+
+#login {
+	margin: 5px auto 0 auto;
+	padding: 10px;
+	width: 240px;
+	height: 151px;
+	text-align: center;
+	color: #FFF;
+	border: 1px solid #000;
+	background-color: #09C;
+}
+
+* html #login {
+	width: 260px;
+	height: 171px;
+}
+
+#login .formulario {
+	width: 160px;
+}
+
+#login p {
+	padding: 5px;
+}
+
+#login_olvido_contrasinal {
+	width: 240px;
+	text-align: right;
+	margin: 5px auto 0 auto;
+}
+
+* html #login_olvido_contrasinal {
+	width: 260px;
+}
+
+/* ----- Menú de Raíces ----- */
+
+#cab_menu {
+	width: 380px;
+	margin: 50px auto 0 auto;
+	color: #FFF;
+	padding: 10px 20px 10px 20px;
+	font-weight: bold;
+	background: #C00;
+	border: 1px solid #000;
+	text-align: left;
+}
+
+* html #cab_menu {
+	width: 420px;
+}
+
+#menu_raices {
+	width: 380px;
+	border: 1px dotted #CCC;
+	background: #EEE;
+	padding: 20px;
+	margin: 10px auto 0 auto;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: #C00;
+}
+
+* html #menu_raices {
+	width: 420px;
+}
+
+#menu_raices ul {
+	font-weight: normal;
+	font-size: 12px;
+	padding: 8px 0 0 0;
+	width: 100%;
+	border-top: 1px solid #C00;
+	list-style: none;
+}
+
+#menu_raices li {
+	padding: 3px;
+	margin: 10px;
+	border-bottom: 1px solid #DDD;
+}
+
+#pe_menu {
+	width: 420px;
+	margin: 20px auto 0 auto;
+	background: #FFF;
+	text-align: right;
+}
+
+#pe_menu a {
+	padding: 10px;
+	background: #666;
+	color: #FFF;
+	border: 1px dotted #999;
+}
+
+/* ----- Menú Superior ----- */
+
+#escolle_ancho {
+	float: left;
+	margin-right: 10px;
+}
+
+#escolle_ancho div {
+	border: 1px solid #CCC;
+	vertical-align: middle;
+	text-align: center;
+	font-weight: bold;
+}
+
+#logo {
+	width: 190px;
+	height: 37px;
+	float: left;
+	position: relative;
+	border: 0;
+}
+
+#logo span {
+	width: 100%;
+	height: 100%;
+	background: url(imx/logo.png) no-repeat;
+	position: absolute;
+}
+
+#menu_principal {
+	width: 100%;
+	margin-top: -5px;
+}
+
+/* ----- Menú Superior arriba ----- */
+
+#menu1 {
+	float: right;
+	list-style: none;
+}
+
+#menu1 li {
+	display: inline;
+}
+
+#menu1 li a {
+	color: #666;
+	padding: 10px 10px 8px 10px;
+	border-left: 1px solid #666;
+}
+
+#menu1 li a:hover {
+	background-color: #CCF;
+	color: #000;
+}
+
+#menu1 li.admin a {
+	color: #C66;
+}
+
+/* ----- Menú Superior abajo ----- */
+
+#menu2 {
+	text-align: left;
+	margin-top: 5px;
+	padding: 5px 0 5px 0;
+	background: #EEE;
+	border-bottom: 1px solid #CCC;
+	list-style: none;
+}
+
+#menu2 li {
+	display: inline;
+}
+
+#menu2 li a {
+	margin: 2px;
+	padding: 5px;
+	border-right: 1px solid #CCC;
+}
+
+#menu2 li a:hover {
+	background: #CCF;
+	border-color: #227;
+}
+
+#menu_texto span {
+	margin-left: 10px;
+	padding: 5px;
+	color: #C00;
+	font-weight: bold;
+}
+
+/* ----- Navegación y buscador ----- */
+
+#utilidades_superior {
+	width: 100%;
+	margin: 10px 0 10px 0;
+	color: #666;
+}
+
+* html #utilidades_superior {
+	margin: 10px 0 0 0;
+}
+
+#navegacion {
+	text-align: left;
+	float: left;
+}
+
+#buscador {
+	float: right;
+	text-align: right;
+}
+
+#palabra_buscar {
+	color: #666;
+}
+
+/* ----- Tabla de listado ----- */
+
+#listado {
+	font-size: 11px;
+	color: #666;
+	width: 100%;
+}
+
+#listado tr, #listado th, #listado td {
+	text-align: center;
+}
+
+#listado th {
+	background-color: #FEC;
+	white-space: nowrap;
+}
+
+#listado th, #listado td {
+	padding: 5px;
+}
+
+#listado td+td, #listado th+th {
+	border-left: 1px solid #CCC;
+}
+
+#listado .trcab {
+	background: #EEE;
+}
+
+#listado .trinfo {
+	background: #FFF;
+}
+
+#listado .tdnome {
+	text-align: left;
+}
+
+.trdir1 {
+	background: #EEE;
+	font-weight: bold;
+}
+
+.trdir0 {
+	background: #FFF;
+	font-weight: bold;
+}
+
+.trarq1 {
+	background: #EEE;
+}
+
+.trarq0 {
+	background: #FFF;
+}
+
+.trdir0:hover, .trdir1:hover, .trarq0:hover, .trarq1:hover {
+	background: #DEE;
+}
+
+.trmarcada {
+	background: #EEC;
+	font-weight: bold;
+}
+
+ul.accions {
+	text-align: right;
+	list-style: none;
+}
+
+ul.accions li {
+	float: left;
+}
+
+ul.accions li a {
+	display: block;
+	width: 22px;
+	height: 17px;
+	margin: 0 2px 0 2px;
+}
+
+/* ----- Opciones multiples inferiores y paginación ----- */
+
+#utilidades_inferior {
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #CCC;
+	color: #666;
+}
+
+#paxinar {
+	margin: 10px 0 0 0;
+	float: right;
+}
+
+#pe_multiple {
+	text-align: left;
+	list-style: none;
+}
+
+#pe_multiple li {
+	float: left;
+	margin: 0 0 10px 0;
+	border-right: 1px solid #CCC;
+}
+
+#pe_multiple li a {
+	display: block;
+	width: 22px;
+	height: 17px;
+	margin: 10px;
+}
+
+#pe_multiple .primeiro {
+	margin-top: 18px;
+	border: 0;
+}
+
+
+/* ----- Estilos para botones de imágen ----- */
+
+li.info a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/info.png) no-repeat center top;
+}
+
+li.info a:hover {
+	background: url(imx/info.png) 50% -19px no-repeat;
+}
+
+li.copiar a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/copiar.png) no-repeat center top;
+}
+
+li.copiar a:hover {
+	background: url(imx/copiar.png) 50% -19px no-repeat;
+}
+
+li.mover a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/mover.png) no-repeat center top;
+}
+
+li.mover a:hover {
+	background: url(imx/mover.png) 50% -19px no-repeat;
+}
+
+li.eliminar a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/eliminar.png) no-repeat center top;
+}
+
+li.eliminar a:hover {
+	background: url(imx/eliminar.png) 50% -19px no-repeat;
+}
+
+li.renomear a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/renomear.png) no-repeat center top;
+}
+
+li.renomear a:hover {
+	background: url(imx/renomear.png) 50% -19px no-repeat;
+}
+
+li.permisos a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/permisos.png) no-repeat center top;
+}
+
+li.permisos a:hover {
+	background: url(imx/permisos.png) 50% -19px no-repeat;
+}
+
+li.descargar a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/descargar.png) no-repeat center top;
+}
+
+li.descargar a:hover {
+	background: url(imx/descargar.png) 50% -19px no-repeat;
+}
+
+li.comprimir a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/comprimir.png) no-repeat center top;
+}
+
+li.comprimir a:hover {
+	background: url(imx/comprimir.png) 50% -19px no-repeat;
+}
+
+li.redimensionar a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/redimensionar.png) no-repeat center top;
+}
+
+li.redimensionar a:hover {
+	background: url(imx/redimensionar.png) 50% -19px no-repeat;
+}
+
+li.extraer a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/extraer.png) no-repeat center top;
+}
+
+li.extraer a:hover {
+	background: url(imx/extraer.png) 50% -19px no-repeat;
+}
+
+li.ver_contido a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/ver_contido.png) no-repeat center top;
+}
+
+li.ver_contido a:hover {
+	background: url(imx/ver_contido.png) 50% -19px no-repeat;
+}
+
+li.editar a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/editar.png) no-repeat center top;
+}
+
+li.editar a:hover {
+	background: url(imx/editar.png) 50% -19px no-repeat;
+}
+
+li.ver_comprimido a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/ver_comprimido.png) no-repeat center top;
+}
+
+li.ver_comprimido a:hover {
+	background: url(imx/ver_comprimido.png) 50% -19px no-repeat;
+}
+
+li.correo a {
+	height: 17px;
+	width: 22px;
+	background: url(imx/correo.png) no-repeat center top;
+}
+
+li.correo a:hover {
+	background: url(imx/correo.png) 50% -19px no-repeat;
+}
+
+/* ----- Cabecera para las pantallas de acciones ----- */
+
+#ver_info {
+	margin: 0 auto 0 auto;
+	width: 97%;
+	text-align: left;
+}
+
+#accions_info {
+	text-align: left;
+	list-style: none;
+	background: #EEE;
+	padding: 10px 0 13px 0;
+	border-bottom: 1px solid #CCC;
+}
+
+#accions_info li {
+	float: left;
+	margin-top: -10px;
+	background: #EEE;
+}
+
+#accions_info li a {
+	display: block;
+	margin: 3px 0 0 0;
+	padding: 0 5px 0 5px;
+	width: 20px;
+}
+
+#accions_info li a.active {
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	border-bottom: 0;
+	background-position: 3px -17px;
+	padding: 3px;
+	margin: 0;
+}
+
+#detalle_info {
+	margin-top: -14px;
+	border: 1px solid #CCC;
+	border-top: 0;
+	padding: 10px;
+	color: #666;
+}
+
+#arquivo_info {
+	border: 1px dotted #CCC;
+	background-color: #EEE;
+	margin: 0 0 15px 0;
+	padding: 5px;
+}
+
+#arquivo_info span {
+	margin-left: 10px;
+	
+}
+
+#subida_espera {
+	width: 100%;
+	background: url(imx/subir_url.gif) no-repeat center top;
+	padding-top: 80px;
+	text-align: center;
+}
+
+.bloque_info {
+	margin-bottom: 15px;
+}
+
+.tabla_info {
+	font-size: 11px;
+	color: #666;
+	width: 100%;
+	border-spacing: 1px;
+	text-align: left;
+}
+
+.tabla_info th {
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	background: #EEE;
+	padding: 3px 5px 3px 5px;
+	font-weight: normal;
+}
+
+.tabla_info td {
+	background: #FFF;
+	border: 0;
+	padding: 3px 5px 3px 5px;
+}
+
+.aviso_info {
+	background: #FF3;
+	padding: 3px;
+	border: 1px dotted #CCC;
+	text-align: center;
+	color: #000;
+	font-weight: bold;
+}
+
+/* ----- Capa para la redimension de imágenes ----- */
+
+#theCrop {
+	position: absolute;
+	border: 1px solid #F00;
+	width: 50px;
+	height: 50px;
+	background-image: url(imx/semitrans.png);
+}
+
+/* ----- Estilos genéricos ----- */
+
+.boton {
+	color: #000;
+	background: #FFF;
+	border: 1px solid #000;
+	padding: 2px;
+}
+
+.nada {
+	display: inline;
+	clear: both;
+}
+
+.aviso {
+	width: auto;
+	background: yellow;
+	border: 1px dotted red;
+	padding: 3px;
+	margin: 5px;
+	font-weight: bold;
+}
+
+.numera {
+	color: #CCC;
+}
+
+.oculto {
+	display: none;
+}
+
+.icono {
+	float: left;
+	margin-right: 8px;
+}
+
+.tabla_informes {
+	border: 1px #CCC solid;
+	background-color: #EEE;
+	width: 100%;
+	padding: 2px;
+}
+
+.tabla_informes th {
+	padding: 2px;
+	text-align: center;
+	background-color: #CCC;
+	white-space: nowrap;
+}
+
+.tabla_informes td {
+	padding: 2px;
+	border-bottom: 1px #CCC solid;
+	white-space: nowrap;
+}
+
+.tr_par {
+	background-color: #FFF;
+}
+
+.subcontido {
+	padding: 5px;
+	margin: 5px;
+	background-color: #F5EDE3;
+	border: 1px solid #CCC;
+	float: left;
+}
+
+a.subcontido:hover {
+	background-color: #F93;
+	border: 1px solid #999;
+}
+
+.td_subcontido {
+	background-color: #DDD;
+}
+
+.centro {
+	text-align: center;
+}
+
+.mini {
+	text-align: center;
+	padding: 3px;
+	margin: 3px;
+	background-color: #EEE;
+	float: left;
+}

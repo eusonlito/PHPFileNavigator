@@ -69,7 +69,6 @@ if ($ok && $PFN_usuarios->init('login',$usuario,$contrasinal)) {
 		session_start();
 	}
 
-	session_register('sPFN');
 	$PFN_vars->session('sPFN', $sPFN);
 
 	$PFN_sesion->escribir(session_id(), ('sPFN|'.serialize($sPFN)));

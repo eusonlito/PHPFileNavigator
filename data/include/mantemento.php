@@ -56,7 +56,6 @@ if ($PFN_conf->g('usuario','mantemento') < $data_mantemento) {
 
 	$sPFN['usuario']['mantemento'] = date('Y-m-d');
 
-	session_register($sPFN);
-	$PFN_vars->session('sPFN',$sPFN);
+	$PFN_vars->session('sPFN', $sPFN);
 }
 ?>

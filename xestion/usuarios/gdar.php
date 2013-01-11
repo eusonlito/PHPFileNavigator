@@ -152,8 +152,6 @@ if (count($erros)) {
 		(empty($contrasinal)?'':($sPFN['usuario']['contrasinal'] = md5($contrasinal)));
 	}
 
-	session_register('sPFN');
-
 	$PFN_vars->session('sPFN', $sPFN);
 
 	session_write_close();

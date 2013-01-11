@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS bloqueo_ip;
 CREATE TABLE IF NOT EXISTS bloqueo_ip (
 	ip varchar(20) NOT NULL default '',
 	PRIMARY KEY (ip)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS sesions;
 CREATE TABLE IF NOT EXISTS sesions (
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS sesions (
 	contido text NOT NULL,
 	ip varchar(20) NOT NULL default '',
 	PRIMARY KEY (id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 ALTER IGNORE TABLE arquivos MODIFY id int(10) unsigned NOT NULL auto_increment;
 ALTER IGNORE TABLE arquivos MODIFY id_directorio int(10) unsigned NOT NULL default '0';

@@ -37,7 +37,6 @@ $PFN_usuarios->init('menu_raices', $sPFN['usuario']['id']);
 if ($PFN_usuarios->filas() == 1) {
 	$sPFN['raiz']['unica'] = true;	
 
-	session_register('sPFN');
 	$PFN_vars->session('sPFN', $sPFN);
 
 	session_write_close();
@@ -45,7 +44,8 @@ if ($PFN_usuarios->filas() == 1) {
 	Header ('Location: navega.php?id='.$PFN_usuarios->get('id').'&'.session_name().'='.session_id());
 	exit;
 } else {
-	session_register('sPFN');
+	$PFN_vars->session('sPFN', $sPFN);
+
 	session_write_close();
 }
 ?>

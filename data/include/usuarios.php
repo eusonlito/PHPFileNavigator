@@ -66,9 +66,7 @@ function envia_erro ($erro) {
 
 	@session_start();
 
-	$sPFN = '';
-	session_register('sPFN');
-	session_unregister('sPFN');
+	$_SESSION['sPFN'] = '';
 	
 	$url = $PFN_conf->g('saida');
 	$url = 'index.php'?"$relativo$url":$url;
@@ -122,7 +120,6 @@ if (empty($id)
 } elseif (!empty($id)) {
 	$sPFN['raiz']['id'] = $id;
 
-	session_register('sPFN');
 	$PFN_vars->session('sPFN', $sPFN);
 }
 

@@ -75,7 +75,6 @@ if (empty($txt_erro) && ($PFN_vars->post('executa') == 'true')) {
 		} else {
 			if (!empty($contrasinal)) {
 				$sPFN['usuario']['contrasinal'] = $datos['contrasinal'];
-				session_register('sPFN');
 
 				$PFN_vars->session('sPFN', $sPFN);
 			}

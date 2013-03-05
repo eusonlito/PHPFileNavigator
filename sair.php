@@ -50,8 +50,9 @@ $url = $PFN_conf->g('saida');
 
 $sPFN = '';
 
-session_register('sPFN');
-session_unregister('sPFN');
+$PFN_vars->session('sPFN', $sPFN);
+
+unset($_SESSION['sPFN']);
 
 if ($PFN_conf->g('manter_sesion')) {
 	$url .= (strstr($url, '?')?'&':'?').session_name().'='.session_id();

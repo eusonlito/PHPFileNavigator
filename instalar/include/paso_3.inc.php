@@ -44,12 +44,9 @@ if ($php_version > 406) {
 
 // Comprobacion de MySQL compilado y version > 4.0.0
 if (extension_loaded('mysql')) {
-	$mysql_version = split('[/.-]', mysql_get_client_info());
-	$mysql_version[1] = sprintf('%02d', $mysql_version[1]);
-	$mysql_version[2] = sprintf('%02d', $mysql_version[2]);
-	$mysql_version = intval($mysql_version[0].$mysql_version[1].$mysql_version[2]);
+	$mysql_version = preg_replace('/^\D*/', '', mysql_get_client_info());
 
-	if ($mysql_version < 40000) {
+	if (version_compare($mysql_version, '4.0' , 'ge')) {
 		$comprobar[1] = 'erro';
 		$erros = 1;
 	} else {

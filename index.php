@@ -26,7 +26,6 @@ programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
 675 Mass Ave, Cambridge, MA 02139, EEUU. 
 *******************************************************************************/
 
-
 include ('paths.php');
 include_once ($PFN_paths['include'].'class_tempo.php');
 include_once ($PFN_paths['include'].'funcions.php');

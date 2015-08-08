@@ -14,16 +14,16 @@ http://phpfilenavigator.litoweb.net/
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -167,7 +167,7 @@ class PFN_Niveles {
 		if ($this->e_dir()) {
 			while ($arq = $this->lee_nivel()) {
 				if ($completo || $this->e_dir($this->nivel.'/'.$arq)) {
-					$lista['nome'][] = $arq; 
+					$lista['nome'][] = $arq;
 
 					if ($PFN_arbore) {
 						$peso = PFN_espacio_disco($this->nivel.'/'.$arq);
@@ -351,7 +351,7 @@ class PFN_Niveles {
 	* return string
 	*/
 	function nome_correcto ($nome) {
-		return preg_replace('/\.{2,}/','', PFN_check_nome($nome));
+		return preg_replace('/\.{2,}/','', trim(strip_tags(PFN_check_nome($nome))));
 	}
 
 	/**
@@ -368,7 +368,7 @@ class PFN_Niveles {
 			return '.';
 		}
 
-		$path = str_replace(array('\\','/./'),array('/','/'),$path);
+		$path = str_replace(array('\\','/./'), array('/','/'), trim(strip_tags($path)));
 		$path = preg_replace('/\.{2,}/','',$path);
 		$path = preg_replace('/\/+/','/',$path);
 		$path = preg_replace('/\/$/','',$path);

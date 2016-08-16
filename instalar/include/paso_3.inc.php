@@ -2,27 +2,27 @@
 /*******************************************************************************
 * instalar/include/paso_3.inc.php
 *
-* Tercer paso de la instalación
+* Tercer paso de la instalaciÃ³n
 *
 
-PHPfileNavigator versión 2.3.2
+PHPfileNavigator versiÃ³n 2.3.2
 
 Copyright (C) 2004-2005 Lito <lito@eordes.com>
 
 http://phpfilenavigator.litoweb.net/
 
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
-términos de la Licencia Pública General de GNU según es publicada por la Free
-Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+tÃ©rminos de la Licencia PÃºblica General de GNU segÃºn es publicada por la Free
+Software Foundation, bien de la versiÃ³n 2 de dicha Licencia o bien (segÃºn su
+elecciÃ³n) de cualquier versiÃ³n posterior. 
 
-Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
-GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
-CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+Este programa se distribuye con la esperanza de que sea Ãºtil, pero SIN NINGUNA
+GARANTÃA, incluso sin la garantÃ­a MERCANTIL implÃ­cita o sin garantizar la
+CONVENIENCIA PARA UN PROPÃ“SITO PARTICULAR. VÃ©ase la Licencia PÃºblica General de
+GNU para mÃ¡s detalles. 
 
-Debería haber recibido una copia de la Licencia Pública General junto con este
-programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
+DeberÃ­a haber recibido una copia de la Licencia PÃºblica General junto con este
+programa. Si no ha sido asÃ­, escriba a la Free Software Foundation, Inc., en
 675 Mass Ave, Cambridge, MA 02139, EEUU. 
 *******************************************************************************/
 
@@ -32,7 +32,7 @@ $comprobar = array();
 $erros = $erro_mysql = $erro_gd = false;
 
 //  Comprobacion de version de PHP > 4.0.6
-$php_version = split('[/.-]', phpversion());
+$php_version = preg_split('#/\.\-#', phpversion());
 $php_version = intval($php_version[0].$php_version[1].$php_version[2]);
 
 if ($php_version > 406) {

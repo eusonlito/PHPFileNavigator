@@ -474,7 +474,7 @@ function PFN_textoArquivo2pantalla ($d, $php=false) {
 		$d = ob_get_contents();
 		ob_end_clean();
 
-		$d = split('(<br \/>|<br>)', $d);
+		$d = preg_split('#(<br \/>|<br>)#', $d);
 		$d[0] = str_replace('<code>', '', $d[0]);
 		$texto = '<code>';
 		$total = strlen(count($d));
@@ -492,7 +492,7 @@ function PFN_textoArquivo2pantalla ($d, $php=false) {
 		global $PFN_conf;
 
 		$d = htmlentities($d, ENT_NOQUOTES, $PFN_conf->g('charset'));
-		$d = split("(\r\n|\n|\r)", $d);
+		$d = preg_split("#(\r\n|\n|\r)#", $d);
 		$texto = '';
 		$total = strlen(count($d));
 

@@ -68,7 +68,7 @@ if (($estado === true) && $PFN_vars->post('executa')) {
 	}
 
 	if (preg_match('/[,;]/', $para)) {
-		$cada_correo = split('[,;]', $para);
+		$cada_correo = preg_split('#[,;]#', $para);
 
 		foreach ($cada_correo as $k => $v) {
 			$v = trim($v);

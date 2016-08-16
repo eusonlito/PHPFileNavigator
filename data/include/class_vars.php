@@ -254,7 +254,7 @@ class PFN_Vars {
 			// una dirección ip que no sea del rango privado. En caso de no
 			// encontrarse ninguna se toma como valor el REMOTE_ADDR
 
-			$entries = split('[, ]', $s_hxff);
+			$entries = preg_split('#[,\s]#', $s_hxff);
 
 			reset($entries);
 

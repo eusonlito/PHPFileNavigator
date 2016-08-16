@@ -32,7 +32,7 @@ $comprobar = array();
 $erros = $erro_mysql = $erro_gd = false;
 
 //  Comprobacion de version de PHP > 4.0.6
-$php_version = preg_split('#/\.\-#', phpversion());
+$php_version = preg_split('#[/\.\-]#', phpversion());
 $php_version = intval($php_version[0].$php_version[1].$php_version[2]);
 
 if ($php_version > 406) {
@@ -62,7 +62,7 @@ include_once ($PFN_paths['instalar'].'include/parsear_phpinfo.php');
 
 if (extension_loaded('gd')) {
 	preg_match('/([0-9\.]+)/', parsear_phpinfo('gd','GD Version'), $gd_version);
-	$gd_version[0] = preg_split('#/\.\-#', $gd_version[1]);
+	$gd_version[0] = preg_split('#[/\.\-]#', $gd_version[1]);
 	$gd_version[0] = intval(substr(intval($gd_version[0][0]).intval($gd_version[0][1]).intval($gd_version[0][2]), 0, 3)); 
 
 	if (($gd_version[0] >= 200) || function_exists('imagecopyresampled')) {

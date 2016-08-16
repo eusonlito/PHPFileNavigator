@@ -30,7 +30,9 @@ programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
 $sPFN = '';
 
 session_start();
-session_unset('sPFN');
+
+unset($_SESSION['sPFN']);
+
 session_write_close();
 
 include ('paths.php');

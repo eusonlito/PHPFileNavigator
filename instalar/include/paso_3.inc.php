@@ -62,7 +62,7 @@ include_once ($PFN_paths['instalar'].'include/parsear_phpinfo.php');
 
 if (extension_loaded('gd')) {
 	preg_match('/([0-9\.]+)/', parsear_phpinfo('gd','GD Version'), $gd_version);
-	$gd_version[0] = split('[/.-]', $gd_version[1]);
+	$gd_version[0] = preg_split('#/\.\-#', $gd_version[1]);
 	$gd_version[0] = intval(substr(intval($gd_version[0][0]).intval($gd_version[0][1]).intval($gd_version[0][2]), 0, 3)); 
 
 	if (($gd_version[0] >= 200) || function_exists('imagecopyresampled')) {

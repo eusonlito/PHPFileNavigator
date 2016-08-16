@@ -61,7 +61,7 @@ defined('OK') or die();
 	<?php if ($erro_mysql) { ?>
 		<?php echo $PFN_conf->t('i:mysql_erro'); ?>
 	<?php } else { ?>
-		<?php echo $PFN_conf->t(($comprobar[1] == 'ok')?'i:instalado_ok':'i:instalado_erro').'<strong> '.mysql_get_client_info(); ?></strong>
+		<?php echo $PFN_conf->t(($comprobar[1] == 'ok')?'i:instalado_ok':'i:instalado_erro').'<strong>'; ?></strong>
 	<?php } ?>
 </div>
 

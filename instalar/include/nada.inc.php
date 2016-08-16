@@ -29,10 +29,11 @@ programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
 defined('OK') or die();
 
 if (is_array($actual) && is_writable($PFN_paths['conf'].'basicas.inc.php')) {
-	if ($con = @mysql_connect($actual['db']['host'], $actual['db']['usuario'], $actual['db']['contrasinal'])) {
-		if (!@mysql_select_db($actual['db']['base_datos'], $con)) $erro[] = 18;
-	} else $erro[] = 17;	
+	if (!($con = @mysqli_connect($actual['db']['host'], $actual['db']['usuario'], $actual['db']['contrasinal'], $actual['db']['base_datos']))) {
+		$erro[] = 17;
+	}
 }
+
 if (!is_writable($PFN_paths['conf'])) $erro[] = 19;
 if (!is_writable($PFN_paths['tmp'])) $erro[] = 21;
 if (!is_writable($PFN_paths['logs'])) $erro[] = 22;
@@ -46,5 +47,5 @@ if (is_array($erro)) {
 	include ($PFN_paths['instalar'].'plantillas/ok.inc.php');
 }
 
-@mysql_close($con);
+@mysqli_close($con);
 ?>

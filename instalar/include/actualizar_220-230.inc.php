@@ -42,11 +42,11 @@ if (count($erros) == 0) {
 			continue;
 		}
 
-		if (!@mysql_query($q, $con)) {
+		if (!@mysqli_query($con, $q)) {
 			$erros['mysql_220-230'] = 17;
 			$erros_q['mysql_220-230'][] = array(
 				'consulta' => $q,
-				'erro' => mysql_error($con)
+				'erro' => mysqli_error($con)
 			);
 		}
 	}
@@ -60,11 +60,11 @@ if (count($erros) == 0) {
 			continue;
 		}
 
-		if (!@mysql_query($q, $con)) {
+		if (!@mysqli_query($con, $q)) {
 			$erros['mysql_220-230'] = 17;
 			$erros_q['mysql_220-230'][] = array(
 				'consulta' => $q,
-				'erro' => mysql_error($con)
+				'erro' => mysqli_error($con)
 			);
 		}
 	}

@@ -35,11 +35,7 @@ $existe = implode('',$basicas['db']);
 if (strlen($existe) == 0) {
 	$erros[] = 18;
 } else {
-	if ($con = @mysql_connect($basicas['db']['host'], $basicas['db']['usuario'], $basicas['db']['contrasinal'])) {
-		if (!@mysql_select_db($basicas['db']['base_datos'], $con)) {
-			$erros[] = 15;
-		}
-	} else {
+	if (!($con = @mysqli_connect($basicas['db']['host'], $basicas['db']['usuario'], $basicas['db']['contrasinal'], $basicas['db']['base_datos']))) {
 		$erros[] = 16;
 	}
 }
@@ -105,7 +101,7 @@ if (count($erros) == 0) {
 }
 
 if ($con) {
-	@mysql_close($con);
+	@mysqli_close($con);
 }
 
 include ($PFN_paths['instalar'].'plantillas/actualizar.inc.php');

@@ -43,16 +43,7 @@ if ($php_version > 406) {
 }
 
 // Comprobacion de MySQL compilado y version > 4.0.0
-if (extension_loaded('mysql')) {
-	$mysql_version = preg_replace('/^\D*/', '', mysql_get_client_info());
-
-	if (version_compare($mysql_version, '4.0' , 'ge')) {
-		$comprobar[1] = 'erro';
-		$erros = 1;
-	} else {
-		$comprobar[1] = 'ok';
-	}
-} else {
+if (!extension_loaded('mysql')) {
 	$comprobar[1] = 'erro';
 	$erros = $erro_mysql = 1;
 }

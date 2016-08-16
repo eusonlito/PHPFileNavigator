@@ -84,10 +84,8 @@ if (!is_dir($form['ra_path'])) {
 	$erros[] = 14;
 }
 
-if ($con = @mysql_connect($form['db_servidor'], $form['db_usuario'], $form['db_contrasinal'])) {
-	if (!@mysql_select_db($form['db_nome'], $con)) {
-		$erros[] = 15;
-	}
+if (!($con = @mysqli_connect($form['db_servidor'], $form['db_usuario'], $form['db_contrasinal'], $form['db_nome']))) {
+	$erros[] = 15;
 } else {
 	$erros[] = 16;
 }
@@ -105,9 +103,9 @@ if (count($erros) == 0) {
 			continue;
 		}
 
-		if (!@mysql_query($q, $con)) {
+		if (!@mysqli_query($con, $q)) {
 			$erros[] = 17;
-			$erros_q[key($erros)] = '<br />'.$q.'<br />'.mysql_error($con);
+			$erros_q[key($erros)] = '<br />'.$q.'<br />'.mysqli_error($con);
 		}
 	}
 
@@ -120,9 +118,9 @@ if (count($erros) == 0) {
 			continue;
 		}
 
-		if (!@mysql_query($q, $con)) {
+		if (!@mysqli_query($con, $q)) {
 			$erros[] = 17;
-			$erros_q[key($erros)] = '<br />'.$q.'<br />'.mysql_error($con);
+			$erros_q[key($erros)] = '<br />'.$q.'<br />'.mysqli_error($con);
 		}
 	}
 
@@ -195,6 +193,6 @@ if (count($erros) == 0) {
 }
 
 if ($con) {
-	@mysql_close($con);
+	@mysqli_close($con);
 }
 ?>

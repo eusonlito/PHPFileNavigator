@@ -74,18 +74,12 @@ class PFN_MySQL {
 	*/
 	function conecta ($host, $user, $password, $database) {
 		$this->LINE = __LINE__+1;
-		$this->conexion = @mysql_connect($host,$user,$password);
+		$this->conexion = @mysqli_connect($host, $user, $password, $database);
 
 		if (!$this->conexion) {
 			// No se ha podido conectar
-			$this->rexistro_error("<b>HOST:</b> $host, <b>USER:</b> $user, <b>DATABASE:</b> $database", mysql_error());
+			$this->rexistro_error("<b>HOST:</b> $host, <b>USER:</b> $user, <b>DATABASE:</b> $database", mysqli_connect_error());
 			return false;
-		}
-
-		$this->LINE = __LINE__+1;
-		if (!@mysql_select_db($database,$this->conexion)) {
-			// no se ha podido conectar
-			$this->rexistro_error("<b>DB:</b> $database", mysql_error());
 		}
 
 		return $this->conexion;
@@ -97,10 +91,10 @@ class PFN_MySQL {
 	* realiza una consulta y guarda el resultado
 	*/
 	function query ($cadena) {
-		$this->resultado = @mysql_query($cadena);
+		$this->resultado = @mysqli_query($this->conexion, $cadena);
 
 		if (!$this->resultado) {
-			$this->rexistro_error($cadena, mysql_error());
+			$this->rexistro_error($cadena, mysqli_error($this->conexion));
 			return -1;
 		} else {
 			return true;
@@ -118,7 +112,7 @@ class PFN_MySQL {
 		if ($this->query($cadena) === -1) {
 			return -1;
 		} else {
-			return @mysql_affected_rows($this->conexion);
+			return @mysqli_affected_rows($this->conexion);
 		}
 	}
 
@@ -131,7 +125,7 @@ class PFN_MySQL {
 	* return array
 	*/
 	function fila () {
-		return @mysql_fetch_array($this->resultado);
+		return @mysqli_fetch_array($this->resultado);
 	}
 
 	/**
@@ -140,7 +134,7 @@ class PFN_MySQL {
 	* cierra la conexión con la base de datos
 	*/
 	function desconectar () {
-		@mysql_close($this->conexion);
+		@mysqli_close($this->conexion);
 	}
 
 	/**
@@ -159,7 +153,7 @@ class PFN_MySQL {
 			$resultado[] = $algo;
 		}
 
-		@mysql_free_result($this->resultado);
+		@mysqli_free_result($this->resultado);
 
 		return $resultado;
 	}
@@ -172,7 +166,7 @@ class PFN_MySQL {
 	* return integer
 	*/
 	function id_ultimo () {
-		return @mysql_insert_id();
+		return @mysqli_insert_id($this->conexion);
 	}
 
 	/**
@@ -191,12 +185,12 @@ class PFN_MySQL {
 			$cadena = "LOCK TABLES $tablas $modo;";
 		}
 
-		if (!@mysql_query($cadena)) {
+		if (!@mysqli_query($this->conexion, $cadena)) {
 			$file = $this->FILE;
 			$line = $this->LINE;
 			$this->FILE = __FILE__;
 			$this->LINE = __LINE__-4;
-			$this->rexistro_error("<b>LOCK:</b> $cadena", mysql_error());
+			$this->rexistro_error("<b>LOCK:</b> $cadena", mysqli_error($this->conexion));
 			$this->LINE = $line;
 			$this->FILE = $file;
 			return -1;
@@ -212,12 +206,12 @@ class PFN_MySQL {
 	*/
 	function unlock () {
 		if ($this->lock) {
-			if (!@mysql_query("UNLOCK TABLES;")) {
+			if (!@mysqli_query($this->conexion, "UNLOCK TABLES;")) {
 				$file = $this->FILE;
 				$line = $this->LINE;
 				$this->FILE = __FILE__;
 				$this->LINE = __LINE__-4;
-				$this->rexistro_error("<b>UNLOCK:</b> $cadena", mysql_error());
+				$this->rexistro_error("<b>UNLOCK:</b> $cadena", mysqli_error($this->conexion));
 				$this->LINE = $line;
 				$this->FILE = $file;
 				return -1;

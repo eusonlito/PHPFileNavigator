@@ -14,16 +14,16 @@ http://phpfilenavigator.litoweb.net/
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -56,12 +56,13 @@ defined('OK') or die();
 	<?php echo $PFN_conf->t(($comprobar[0] == 'ok')?'i:instalado_ok':'i:instalado_erro').'<strong> '.phpversion(); ?></strong>
 </div>
 
-<div class="capa_<?php echo $comprobar[1]; ?>">
+<div class="capa_<?php echo $erro_mysql ? 'ko' : 'ok'; ?>">
 	<strong>MySQL >= 4.0.0</strong><br />
+
 	<?php if ($erro_mysql) { ?>
 		<?php echo $PFN_conf->t('i:mysql_erro'); ?>
 	<?php } else { ?>
-		<?php echo $PFN_conf->t(($comprobar[1] == 'ok')?'i:instalado_ok':'i:instalado_erro').'<strong>'; ?></strong>
+		<?php echo $PFN_conf->t('i:instalado_ok'); ?>
 	<?php } ?>
 </div>
 

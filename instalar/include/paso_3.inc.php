@@ -14,16 +14,16 @@ http://phpfilenavigator.litoweb.net/
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -43,7 +43,7 @@ if ($php_version > 406) {
 }
 
 // Comprobacion de MySQL compilado y version > 4.0.0
-if (!extension_loaded('mysql')) {
+if (!extension_loaded('mysql') && !extension_loaded('mysqli')) {
 	$comprobar[1] = 'erro';
 	$erros = $erro_mysql = 1;
 }
@@ -52,9 +52,10 @@ if (!extension_loaded('mysql')) {
 include_once ($PFN_paths['instalar'].'include/parsear_phpinfo.php');
 
 if (extension_loaded('gd')) {
-	preg_match('/([0-9\.]+)/', parsear_phpinfo('gd','GD Version'), $gd_version);
+	preg_match('/([0-9\.]+)/', parsear_phpinfo('gd','GD headers Version'), $gd_version);
+
 	$gd_version[0] = preg_split('#[/\.\-]#', $gd_version[1]);
-	$gd_version[0] = intval(substr(intval($gd_version[0][0]).intval($gd_version[0][1]).intval($gd_version[0][2]), 0, 3)); 
+	$gd_version[0] = intval(substr(intval($gd_version[0][0]).intval($gd_version[0][1]).intval($gd_version[0][2]), 0, 3));
 
 	if (($gd_version[0] >= 200) || function_exists('imagecopyresampled')) {
 		$comprobar[2] = 'ok';

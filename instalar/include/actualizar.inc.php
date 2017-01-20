@@ -2,28 +2,28 @@
 /*******************************************************************************
 * instalar/include/actualizar.inc.php
 *
-* Ejectula la acciÛn de actualizaciÛn desde la versiÛn 2.0.0 o posterior
+* Ejectula la acci√≥n de actualizaci√≥n de versi√≥n
 *
 
-PHPfileNavigator versiÛn 2.3.3
+PHPfileNavigator versi√≥n 2.3.2
 
-Copyright (C) 2004-2006 Lito <lito@eordes.com>
+Copyright (C) 2004-2006 Lito <litoeordes.com>
 
 http://phpfilenavigator.litoweb.net/
 
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
-tÈrminos de la Licencia P˙blica General de GNU seg˙n es publicada por la Free
-Software Foundation, bien de la versiÛn 2 de dicha Licencia o bien (seg˙n su
-elecciÛn) de cualquier versiÛn posterior. 
+t√©rminos de la Licencia P√∫blica General de GNU seg√∫n es publicada por la Free
+Software Foundation, bien de la versi√≥n 2 de dicha Licencia o bien (seg√∫n su
+elecci√≥n) de cualquier versi√≥n posterior.
 
-Este programa se distribuye con la esperanza de que sea ˙til, pero SIN NINGUNA
-GARANTÕA, incluso sin la garantÌa MERCANTIL implÌcita o sin garantizar la
-CONVENIENCIA PARA UN PROP”SITO PARTICULAR. VÈase la Licencia P˙blica General de
-GNU para m·s detalles. 
+Este programa se distribuye con la esperanza de que sea √∫til, pero SIN NINGUNA
+GARANT√çA, incluso sin la garant√≠a MERCANTIL impl√≠cita o sin garantizar la
+CONVENIENCIA PARA UN PROP√ìSITO PARTICULAR. V√©ase la Licencia P√∫blica General de
+GNU para m√°s detalles.
 
-DeberÌa haber recibido una copia de la Licencia P˙blica General junto con este
-programa. Si no ha sido asÌ, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+Deber√≠a haber recibido una copia de la Licencia P√∫blica General junto con este
+programa. Si no ha sido as√≠, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -34,10 +34,8 @@ $existe = implode('',$basicas['db']);
 
 if (strlen($existe) == 0) {
 	$erros[] = 18;
-} else {
-	if (!($con = @mysqli_connect($basicas['db']['host'], $basicas['db']['usuario'], $basicas['db']['contrasinal'], $basicas['db']['base_datos']))) {
-		$erros[] = 16;
-	}
+} elseif (!($con = @mysqli_connect($basicas['db']['host'], $basicas['db']['usuario'], $basicas['db']['contrasinal'], $basicas['db']['base_datos']))) {
+	$erros[] = 16;
 }
 
 if (count($erros) == 0) {

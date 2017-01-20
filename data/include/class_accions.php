@@ -15,16 +15,16 @@ http://phpfilenavigator.litoweb.net/
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -448,7 +448,7 @@ class PFN_Accions extends PFN_Niveles {
 	*
 	* return integer
 	*/
-	function enlace ($orixe, $destino) {
+	function enlace ($orixe, $destino, $abs = true) {
 		$dir_destino = $this->dir_destino($destino);
 
 		// Anula si no existe el destino
@@ -553,7 +553,7 @@ class PFN_Accions extends PFN_Niveles {
 		set_time_limit(0);
 
 		if ($fp = @fopen($url,'r')) {
-			$fp2 = @fopen($donde.'/'.$nome,'w'); 
+			$fp2 = @fopen($donde.'/'.$nome,'w');
 
 			if (!$fp2) {
 				return 0;
@@ -563,13 +563,13 @@ class PFN_Accions extends PFN_Niveles {
 
 			set_magic_quotes_runtime(0);
 
-			while(!feof($fp) && (connection_status() == 0)) { 
-				fwrite($fp2,fread($fp,1024*512)); 
+			while(!feof($fp) && (connection_status() == 0)) {
+				fwrite($fp2,fread($fp,1024*512));
 			}
 
 			set_magic_quotes_runtime($mq);
 
-			fclose($fp); 
+			fclose($fp);
 			fclose($fp2);
 
 			$this->estado['subir_url'] = 1;

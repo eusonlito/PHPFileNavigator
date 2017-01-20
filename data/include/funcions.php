@@ -5,25 +5,25 @@
 * Funciones para diversos tratamientos de datos y texto
 *
 
-PHPfileNavigator versión 2.3.2
+PHPfileNavigator versiÃ³n 2.3.2
 
 Copyright (C) 2004-2005 Lito <lito@eordes.com>
 
 http://phpfilenavigator.litoweb.net/
 
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
-términos de la Licencia Pública General de GNU según es publicada por la Free
-Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+tÃ©rminos de la Licencia PÃºblica General de GNU segÃºn es publicada por la Free
+Software Foundation, bien de la versiÃ³n 2 de dicha Licencia o bien (segÃºn su
+elecciÃ³n) de cualquier versiÃ³n posterior.
 
-Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
-GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
-CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+Este programa se distribuye con la esperanza de que sea Ãºtil, pero SIN NINGUNA
+GARANTÃA, incluso sin la garantÃ­a MERCANTIL implÃ­cita o sin garantizar la
+CONVENIENCIA PARA UN PROPÃ“SITO PARTICULAR. VÃ©ase la Licencia PÃºblica General de
+GNU para mÃ¡s detalles.
 
-Debería haber recibido una copia de la Licencia Pública General junto con este
-programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+DeberÃ­a haber recibido una copia de la Licencia PÃºblica General junto con este
+programa. Si no ha sido asÃ­, escriba a la Free Software Foundation, Inc., en
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -64,7 +64,7 @@ function PFN_query_str ($params, $sep="&amp;") {
 * function PFN_get_url (boolean $php, boolean header)
 *
 * devuelve la url actual.
-* si el parámetro $php es true, la cadena incluye
+* si el parÃ¡metro $php es true, la cadena incluye
 * al principio el valor de PHP_SELF
 * para llamadas desde la funcion Header('Location: ...'); se debe
 * pasar a true el parametro $header
@@ -84,11 +84,11 @@ function PFN_get_url ($php=true, $header=false) {
 * realiza un cambio en alguna de las variables pasadas por
 * QUERY_STRING, en caso de no existir la variable a cambiar,
 * la crea.
-* el cambio no será permanente ya que la próxima vez que se pida
+* el cambio no serÃ¡ permanente ya que la prÃ³xima vez que se pida
 * el mismo campo, devolve su valor inicial.
 * el cambio puede ser multiple si los valores de $orixen y $destino
 * son un array
-* si el parámetro $php es true, la cadena incluye
+* si el parÃ¡metro $php es true, la cadena incluye
 * al principio el valor de PHP_SELF
 * para llamadas desde la funcion Header('Location: ...'); se debe
 * pasar a true el parametro $header
@@ -106,14 +106,14 @@ function PFN_cambia_url ($orixen, $destino, $php=true, $header=false) {
 				unset($url[$v]);
 			} else {
 				$url[$v] = $destino[$k];
-			} 
+			}
 		}
 	} else {
 		if (empty($destino)) {
 			unset($url[$orixen]);
 		} else {
 			$url[$orixen] = $destino;
-		} 
+		}
 	}
 
 	return $cad.PFN_query_str($url,$header?'&':'&amp;');
@@ -144,7 +144,7 @@ function PFN_cambia_outra_url ($url, $orixen, $destino, $header=false) {
 			unset($q[$orixen]);
 		} else {
 			$q[$orixen] = $destino;
-		} 
+		}
 	}
 
 	$acum = '';
@@ -172,11 +172,11 @@ function PFN_cambia_outra_url ($url, $orixen, $destino, $header=false) {
 * function PFN_quita_url (mixed $orixen, boolean $php, boolean header)
 *
 * elimina una variable y su valor de QUERY_STRING,
-* que no será permanente ya que la próxima vez que se pida
-* el mismo valor, existirá.
-* si el $orixen es un array, eliminará todos los elementos
+* que no serÃ¡ permanente ya que la prÃ³xima vez que se pida
+* el mismo valor, existirÃ¡.
+* si el $orixen es un array, eliminarÃ¡ todos los elementos
 * incluidos en el mismo.
-* si el parámetro $php es true, la cadena incluye
+* si el parÃ¡metro $php es true, la cadena incluye
 * al principio el valor de PHP_SELF
 * para llamadas desde la funcion Header('Location: ...'); se debe
 * pasar a true el parametro $header
@@ -204,7 +204,7 @@ function PFN_quita_url ($orixen, $php=true, $header=false) {
 * function PFN_quita_url_SERVER (mixed $orixen, boolean $php)
 *
 * elimina una variable y su valor de QUERY_STRING permanentemente.
-* si el $orixen es un array, eliminará todos los elementos
+* si el $orixen es un array, eliminarÃ¡ todos los elementos
 * incluidos en el mismo.
 * si el parametro $php es true, la cadena incluye
 * al principio el valor de PHP_SELF
@@ -244,7 +244,7 @@ function PFN_get_valor_url ($cal) {
 /**
 * function PFN_peso (integer $peso)
 *
-* formatea el tamaño de un fichero que recibe
+* formatea el tamaÃ±o de un fichero que recibe
 * en bytes, para devolverlo en formato legible
 *
 * return string
@@ -294,21 +294,21 @@ function PFN_permisos ($perms) {
 	$info .= (($perms & 0x0040) ?
 		(($perms & 0x0800) ? 's' : 'x' ) :
 		(($perms & 0x0800) ? 'S' : '-'));
-	
+
 	// Group
 	$info .= (($perms & 0x0020) ? 'r' : '-');
 	$info .= (($perms & 0x0010) ? 'w' : '-');
 	$info .= (($perms & 0x0008) ?
 		(($perms & 0x0400) ? 's' : 'x' ) :
 		(($perms & 0x0400) ? 'S' : '-'));
-	
+
 	// World
 	$info .= (($perms & 0x0004) ? 'r' : '-');
 	$info .= (($perms & 0x0002) ? 'w' : '-');
 	$info .= (($perms & 0x0001) ?
 		(($perms & 0x0200) ? 't' : 'x' ) :
 		(($perms & 0x0200) ? 'T' : '-'));
-	
+
 	return $info;
 }
 
@@ -324,41 +324,24 @@ function PFN_check_nome ($nome) {
 	global $PFN_conf;
 
 	if ($PFN_conf->g('nome_riguroso')) {
-		$busca = array (
-			'á','é','í','ó','ú','à','è','ì','ò','ù',
-			'â','ê','î','ô','û','ä','ë','ï','ö','ü',
-			'Á','É','Í','Ó','Ú','À','È','Ì','Ò','Ù',
-			'Â','Ê','Î','Ô','Û','Ä','Ë','Ï','Ö','Ü',
-			'ñ','Ñ','ç','Ç',' ','(',')','?','¿','/',
-			'#','º','ª','!','·','#','%','¬','=','¡',
-			'^',';','"',"'",'+','[',']','{','}',';',
-			'~','¤','¶','ø','þ','æ','ß','ð','«','»',
-			'¢','µ','€','\\',':','*','<','>','|','$',
-			'&','@','`');
-		$cambia = array (
-			'a','e','i','o','u','a','e','i','o','u',
-			'a','e','i','o','u','a','e','i','o','u',
-			'A','E','I','O','U','A','E','I','O','U',
-			'A','E','I','O','U','A','E','I','O','U',
-			'n','N','c','C','_','_','_','_','_','_',
-			'_','o','a','_','_','_','_','_','_','_',
-			'_','_','_','_','_','_','_','_','_','_',
-			'_','_','_','_','_','_','_','_','_','_',
-			'_','_','_','_','_','_','_','_','_','_',
-			'_','_','_');
+		$nome = htmlentities(PFN_encode2utf(trim(strip_tags($nome))), ENT_NOQUOTES, 'UTF-8');
+		$nome = preg_replace('/&(\w)\w+;/', '$1', $nome);
+		$nome = strtr($nome, array(' ' => '-'));
+
+		return PFN_encode2charset(preg_replace('/\-+/', '-', preg_replace('/[^\w\.\-]/', '', $nome)));
 	} else {
 		$busca = array ('?','/','\\',':','*','|','<','>','"');
 		$cambia = array ('_','_','_','_','_','_','_','_','_');
-	}
 
-	return str_replace($busca, $cambia, trim($nome));
+		return PFN_encode2charset(preg_replace('/_+/', '_', str_replace($busca, $cambia, trim($nome))));
+	}
 }
 
 /**
 * function PFN_cambia_intros (string $cadena)
 *
 * cambia los intros de un texto por <br /> para guardarlo
-* como información adicional
+* como informaciÃ³n adicional
 *
 * return string
 */
@@ -381,7 +364,7 @@ function PFN_intro_normal ($cadena) {
 * function PFN_iniEtiquetas (string $d)
 *
 * cambia los < > de las etiquetas html por [[ ]] para evitar
-* problemas con htmlentities en la conversión
+* problemas con htmlentities en la conversiÃ³n
 *
 * return string
 */
@@ -437,7 +420,7 @@ function PFN_textoForm2interno ($d) {
 function PFN_textoInterno2Form ($d) {
 	global $PFN_conf;
 
-	$d = preg_replace('/(<br>|<br \/>)/i', "\n", $d);
+	$d = preg_replace('/<br\s?\/?\>/i', "\n", $d);
 	return htmlentities($d, ENT_COMPAT, $PFN_conf->g('charset'));
 }
 
@@ -449,10 +432,12 @@ function PFN_textoInterno2Form ($d) {
 * return string
 */
 function PFN_quitaHtmlentities ($d) {
-	$trans = get_html_translation_table(HTML_ENTITIES);
+	global $PFN_conf;
+
+	$trans = get_html_translation_table(HTML_ENTITIES, ENT_COMPAT);
 	$trans = array_flip($trans);
 	$d = strtr($d, $trans);
-	return preg_replace('/(<br>|<br \/>)/i',"\n", trim($d));
+	return preg_replace('/<br\s?\/?\>/i', "\n", trim($d));
 }
 
 /**
@@ -474,7 +459,7 @@ function PFN_textoArquivo2pantalla ($d, $php=false) {
 		$d = ob_get_contents();
 		ob_end_clean();
 
-		$d = preg_split('#(<br \/>|<br>)#', $d);
+		$d = preg_split('/<br\s?\/?\>/i', $d);
 		$d[0] = str_replace('<code>', '', $d[0]);
 		$texto = '<code>';
 		$total = strlen(count($d));
@@ -492,7 +477,7 @@ function PFN_textoArquivo2pantalla ($d, $php=false) {
 		global $PFN_conf;
 
 		$d = htmlentities($d, ENT_NOQUOTES, $PFN_conf->g('charset'));
-		$d = preg_split("#(\r\n|\n|\r)#", $d);
+		$d = preg_split("/(\r\n|\n|\r)/", $d);
 		$texto = '';
 		$total = strlen(count($d));
 
@@ -508,9 +493,9 @@ function PFN_textoArquivo2pantalla ($d, $php=false) {
 /**
 * function PFN_listado_select (integer $total, integer $actual)
 * $total: numero de elementos en un directorio
-* $actual: posición actual en la paginación de un directorio
+* $actual: posiciÃ³n actual en la paginaciÃ³n de un directorio
 *
-* crea un select para la paginación de los elementos contenidos en
+* crea un select para la paginaciÃ³n de los elementos contenidos en
 * un directorio
 *
 * return string
@@ -534,7 +519,7 @@ function PFN_listado_select ($total, $actual) {
 
 		if ($total > $paxinar) {
 			$select = ($actual == -1)?'selected="selected"':'';
-			$cad .= "\n".'<option value="-1" '.$select.'>'.$PFN_conf->t('TODO').'</option>';
+			$cad .= "\n".'<option value="-1" '.$select.'>'.PFN___('TODO').'</option>';
 		}
 	}
 
@@ -544,8 +529,8 @@ function PFN_listado_select ($total, $actual) {
 /**
 * function PFN_espacio_disco (string $arq, boolean $real)
 *
-* Devuelve el peso real de un fichero en disco, teniendo en cuenta que el tamaño
-* mínimo de bloque son 4 kb, si $real es true devolvera el valor de filesize
+* Devuelve el peso real de un fichero en disco, teniendo en cuenta que el tamaÃ±o
+* mÃ­nimo de bloque son 4 kb, si $real es true devolvera el valor de filesize
 *
 * return integer
 */
@@ -581,7 +566,7 @@ function PFN_espacio_disco ($arq, $real=false) {
 * function PFN_stripslashes (mixed $txt)
 *
 * Devuleve una cadena formateada sin las barras invertidas
-* según la configuración del servidor
+* segÃºn la configuraciÃ³n del servidor
 *
 * return mixed
 */
@@ -608,8 +593,8 @@ function PFN_check_correo ($correo) {
 /**
 * function PFN_crea_path_extra (string $cal)
 *
-* Crea el directorio para poder guardar ficheros de información adicional
-* o las previsualizacion de las imágenes
+* Crea el directorio para poder guardar ficheros de informaciÃ³n adicional
+* o las previsualizacion de las imÃ¡genes
 *
 * return boolean
 */
@@ -629,7 +614,11 @@ function PFN_crea_path_extra ($cal) {
 function PFN_get_path_extra ($cal) {
 	global $PFN_paths;
 
-	return $PFN_paths['extra'].str_replace(array('//','/./'), array('/','/'), $cal);
+	if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+		return str_replace(array('//','/./'), array('/','/'), $PFN_paths['extra'].preg_replace('/^[^:]*:/', '', $cal));
+	} else {
+		return str_replace(array('//','/./'), array('/','/'), $PFN_paths['extra'].$cal);
+	}
 }
 
 /**
@@ -652,4 +641,91 @@ function PFN_crea_directorio_recursivo ($dir) {
 
 	return @mkdir($dir, $mode);
 }
-?>
+
+/**
+* function PFN_array_key_exists (string $clave, array $array)
+*
+* Busca un indice en un array de manera recursiva
+*
+* return boolean
+*/
+function PFN_array_key_exists ($clave, $array) {
+	if (isset($array[$clave])) {
+		return $array[$clave];
+	}
+
+	foreach ($array as $k => $v) {
+		if (is_array($v) || is_object($v)) {
+			if ($existe = PFN_array_key_exists($clave, $v)) {
+				return $existe;
+			}
+		} else if ($k == $clave) {
+			return $v;
+		}
+	}
+
+	return false;
+}
+
+function PFN_encode2charset ($string) {
+	global $PFN_conf;
+
+	return stristr($PFN_conf->g('charset'), 'iso-8859-') ? PFN_encode2iso($string) : PFN_encode2utf($string);
+}
+
+function PFN_encode2iso ($string) {
+	if (is_array($string)) {
+		foreach ($string as $k => $v) {
+			$string[$k] = PFN_encode2iso($v);
+		}
+
+		return $string;
+	}
+
+	if ((mb_detect_encoding($string) === 'ISO-8859-1') && mb_check_encoding($string, 'ISO-8859-1')) {
+		return $string;
+	} else {
+		return @mb_convert_encoding($string, 'ISO-8859-1', 'auto');
+	}
+}
+
+function PFN_encode2utf ($string) {
+	if (is_array($string)) {
+		foreach ($string as $k => $v) {
+			$string[$k] = PFN_encode2utf($v);
+		}
+
+		return $string;
+	}
+
+	if ((mb_detect_encoding($string) === 'UTF-8') && mb_check_encoding($string, 'UTF-8')) {
+		return $string;
+	} else {
+		return utf8_encode($string);
+	}
+}
+
+if (!function_exists('sys_get_temp_dir')) {
+	function sys_get_temp_dir () {
+		if (!empty($_ENV['TMP'])) {
+			return realpath($_ENV['TMP']);
+		} else if (!empty($_ENV['TMPDIR'])) {
+			return realpath( $_ENV['TMPDIR']);
+		} else if (!empty($_ENV['TEMP'])) {
+			return realpath( $_ENV['TEMP']);
+		}
+  }
+}
+
+function escape($value) {
+    $return = '';
+    for($i = 0; $i < strlen($value); ++$i) {
+        $char = $value[$i];
+        $ord = ord($char);
+        if($char !== "'" && $char !== "\"" && $char !== '\\' && $ord >= 32 && $ord <= 126)
+            $return .= $char;
+        else
+            $return .= '\\x' . dechex($ord);
+    }
+    return $return;
+}

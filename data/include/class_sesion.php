@@ -14,16 +14,16 @@ http://phpfilenavigator.litoweb.net/
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -69,7 +69,7 @@ class PFN_Sesion {
 
 	/**
 	* function inicia (void)
-	* 
+	*
 	* Inicializa la función manejadora de sesiones
 	*/
 	function inicia () {
@@ -256,7 +256,7 @@ class PFN_Sesion {
 	/**
 	* function keyED (string $cad)
 	*
-	* Genera una clave para la cadena recibida 
+	* Genera una clave para la cadena recibida
 	*
 	* return string
 	*/
@@ -270,10 +270,10 @@ class PFN_Sesion {
 			$cnt = ($cnt == $lonx_clave)?0:$cnt;
 			$resultado .= substr($cad, $i, 1) ^ substr($this->clave, $cnt, 1);
 			$cnt++;
-		} 
+		}
 
 		return $resultado;
-	} 
+	}
 
 	/**
 	* function encripta (string $cad)
@@ -294,11 +294,11 @@ class PFN_Sesion {
 			$cnt = ($cnt == $lonx_clave)?0:$cnt;
 			$resultado .= substr($aleatorio, $cnt, 1).(substr($cad, $i, 1) ^ substr($aleatorio, $cnt, 1));
 			$cnt++;
-		} 
+		}
 
 		return base64_encode($this->keyED($resultado));
-	} 
-	
+	}
+
 	/**
 	* function desencripta (string $cad)
 	*
@@ -321,6 +321,6 @@ class PFN_Sesion {
 	}
 }
 
-$PFN_sesion = &new PFN_Sesion($PFN_conf);
+$PFN_sesion = new PFN_Sesion($PFN_conf);
 $PFN_sesion->inicia();
 ?>

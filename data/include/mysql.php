@@ -7,23 +7,23 @@
 
 PHPfileNavigator versión 2.3.0
 
-Copyright (C) 2004-2005 Lito <lito@eordes.com>
+Copyright (C) 2004-2005 Lito <litoeordes.com>
 
 http://phpfilenavigator.litoweb.net/
 
 Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 términos de la Licencia Pública General de GNU según es publicada por la Free
 Software Foundation, bien de la versión 2 de dicha Licencia o bien (según su
-elección) de cualquier versión posterior. 
+elección) de cualquier versión posterior.
 
 Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA
 GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la
 CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de
-GNU para más detalles. 
+GNU para más detalles.
 
 Debería haber recibido una copia de la Licencia Pública General junto con este
 programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en
-675 Mass Ave, Cambridge, MA 02139, EEUU. 
+675 Mass Ave, Cambridge, MA 02139, EEUU.
 *******************************************************************************/
 
 defined('OK') or die();
@@ -37,7 +37,7 @@ class PFN_MySQL {
 	var $conexion;
 	var $resultado;
 	var $depurar = true;
-	var $imprimir = true;
+	var $imprimir = false;
 	var $FILE = __FILE__;
 	var $LINE;
 	var $lock = false;
@@ -49,8 +49,10 @@ class PFN_MySQL {
 	* cubre los datos para conexión a base de datos
 	* y realiza la conexión
 	*/
-	function abre_conexion (&$PFN_conf) {
-		$this->conf = &$PFN_conf;
+	function abre_conexion (&$PFN_conf = null) {
+		if ($PFN_conf) {
+			$this->conf = &$PFN_conf;
+		}
 
 		// sql($host, $user, $password, $database);
 		$d = array(
@@ -74,12 +76,18 @@ class PFN_MySQL {
 	*/
 	function conecta ($host, $user, $password, $database) {
 		$this->LINE = __LINE__+1;
-		$this->conexion = @mysqli_connect($host, $user, $password, $database);
+		$this->conexion = mysqli_connect($host,$user,$password);
 
 		if (!$this->conexion) {
 			// No se ha podido conectar
-			$this->rexistro_error("<b>HOST:</b> $host, <b>USER:</b> $user, <b>DATABASE:</b> $database", mysqli_connect_error());
+			$this->rexistro_error("<b>HOST:</b> $host, <b>USER:</b> $user, <b>DATABASE:</b> $database", $mysqli->connect_error);
 			return false;
+		}
+
+		$this->LINE = __LINE__+1;
+		if (!mysqli_select_db($this->conexion, $database)) {
+			// no se ha podido conectar
+			$this->rexistro_error("<b>DB:</b> $database", mysqli_error($this->conexion));
 		}
 
 		return $this->conexion;
@@ -91,7 +99,11 @@ class PFN_MySQL {
 	* realiza una consulta y guarda el resultado
 	*/
 	function query ($cadena) {
-		$this->resultado = @mysqli_query($this->conexion, $cadena);
+		if (!$this->conexion) {
+			$this->abre_conexion();
+		}
+
+		$this->resultado = mysqli_query($this->conexion, $cadena);
 
 		if (!$this->resultado) {
 			$this->rexistro_error($cadena, mysqli_error($this->conexion));
@@ -112,7 +124,7 @@ class PFN_MySQL {
 		if ($this->query($cadena) === -1) {
 			return -1;
 		} else {
-			return @mysqli_affected_rows($this->conexion);
+			return mysqli_affected_rows($this->conexion);
 		}
 	}
 
@@ -125,7 +137,7 @@ class PFN_MySQL {
 	* return array
 	*/
 	function fila () {
-		return @mysqli_fetch_array($this->resultado);
+		return mysqli_fetch_array($this->resultado);
 	}
 
 	/**
@@ -134,7 +146,7 @@ class PFN_MySQL {
 	* cierra la conexión con la base de datos
 	*/
 	function desconectar () {
-		@mysqli_close($this->conexion);
+		mysqli_close($this->conexion);
 	}
 
 	/**
@@ -147,13 +159,14 @@ class PFN_MySQL {
 	*/
 	function recuperar ($query) {
 		$this->query($query);
+
 		$resultado = array();
 
 		while ($algo = $this->fila()) {
 			$resultado[] = $algo;
 		}
 
-		@mysqli_free_result($this->resultado);
+		mysqli_free_result($this->resultado);
 
 		return $resultado;
 	}
@@ -166,7 +179,7 @@ class PFN_MySQL {
 	* return integer
 	*/
 	function id_ultimo () {
-		return @mysqli_insert_id($this->conexion);
+		return mysqli_insert_id($this->conexion);
 	}
 
 	/**
@@ -185,7 +198,11 @@ class PFN_MySQL {
 			$cadena = "LOCK TABLES $tablas $modo;";
 		}
 
-		if (!@mysqli_query($this->conexion, $cadena)) {
+		if (!$this->conexion) {
+			$this->abre_conexion();
+		}
+
+		if (!mysqli_query($this->conexion, $cadena)) {
 			$file = $this->FILE;
 			$line = $this->LINE;
 			$this->FILE = __FILE__;
@@ -205,20 +222,26 @@ class PFN_MySQL {
 	* Desbloquea las tablas bloqueadas con LOCK
 	*/
 	function unlock () {
-		if ($this->lock) {
-			if (!@mysqli_query($this->conexion, "UNLOCK TABLES;")) {
-				$file = $this->FILE;
-				$line = $this->LINE;
-				$this->FILE = __FILE__;
-				$this->LINE = __LINE__-4;
-				$this->rexistro_error("<b>UNLOCK:</b> $cadena", mysqli_error($this->conexion));
-				$this->LINE = $line;
-				$this->FILE = $file;
-				return -1;
-			}
-
-			$this->lock = false;
+		if (!$this->lock) {
+			return;
 		}
+
+		if (!$this->conexion) {
+			$this->abre_conexion();
+		}
+
+		if (!mysqli_query($this->conexion, "UNLOCK TABLES;")) {
+			$file = $this->FILE;
+			$line = $this->LINE;
+			$this->FILE = __FILE__;
+			$this->LINE = __LINE__-4;
+			$this->rexistro_error("<b>UNLOCK:</b> $cadena", mysqli_error($this->conexion));
+			$this->LINE = $line;
+			$this->FILE = $file;
+			return -1;
+		}
+
+		$this->lock = false;
 	}
 
 	/**
@@ -250,12 +273,12 @@ class PFN_MySQL {
 						return false;
 					}
 
-					if ($fp = @fopen($arq, 'a+')) {
-						if (@flock($fp, LOCK_EX)) {
+					if ($fp = fopen($arq, 'a+')) {
+						if (flock($fp, LOCK_EX)) {
 							break;
 						}
 
-						@fclose($fp);
+						fclose($fp);
 					}
 
 					$cnt++;
@@ -267,7 +290,7 @@ class PFN_MySQL {
 					return false;
 				}
 			} else {
-				if ($fp = @fopen($arq,'w')) {
+				if ($fp = fopen($arq,'w')) {
 					flock($fp, LOCK_EX);
 
 					$ini = '<?php'."\n"
@@ -285,4 +308,3 @@ class PFN_MySQL {
 }
 
 $PFN_dbsql = new PFN_MySQL;
-?>

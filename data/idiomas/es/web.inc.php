@@ -144,6 +144,7 @@ return array(
 	'ultimo_acceso' => '&Aacute;ltimo Acceso',
 	'informacion_adicional' => 'Informaci&oacute;n Adicional',
 	'info' => 'Informaci&oacute;n',
+	'todo' => 'Todo',
 	'todos' => 'Todos',
 	'escritura' => 'Escritura',
 	'execucion' => 'Ejecuci&oacute;n',

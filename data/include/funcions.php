@@ -519,7 +519,7 @@ function PFN_listado_select ($total, $actual) {
 
 		if ($total > $paxinar) {
 			$select = ($actual == -1)?'selected="selected"':'';
-			$cad .= "\n".'<option value="-1" '.$select.'>'.PFN___('TODO').'</option>';
+			$cad .= "\n".'<option value="-1" '.$select.'>'.$PFN_conf->t('todo').'</option>';
 		}
 	}
 
